@@ -1,0 +1,2286 @@
+<!--Designed by Fabian Shamano, www.fabianshamano.com, fabianshamano@yahoo.com-->
+<!DOCTYPE html>
+<html lang="en">
+<?php include 'includes/Dbconnect.php';
+include'includes/functions.php';
+Include 'includes/SurveyFunctions.php';	
+ ?>
+
+	<head>
+		<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+
+		<title>Zambia National Building Society</title>
+
+		<!-- Bootstrap -->
+		<link href="css/owl.carousel.min.css" rel="stylesheet">
+		<link href="css/owl.theme.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/lightbox.min.css" rel="stylesheet">
+		<link href="css/animate.css" rel="stylesheet">
+		<link href="css/thumbnail-previews.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/styles.css" type="text/css" media="screen" />
+		<link rel="icon" type="image/png" href="favicon.png"/>
+		
+		 <style>
+								* {
+								  box-sizing: border-box;
+								}
+
+								.columns {
+								  float: left;
+								  width: 50%;
+								  padding: 8px;
+								}
+
+								.price {
+								  list-style-type: none;
+								  border: 1px solid #ffff;
+								  margin: 0;
+								  padding: 0;
+								  -webkit-transition: 0.3s;
+								  transition: 0.3s;
+								  box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2)
+								}
+
+								.price:hover {
+								  
+								}
+
+								.price .header {
+								  background-color: #111;
+								  color: white;
+								  font-size: 25px;
+								}
+
+								.price li {
+								  border-bottom: 1px solid #ffff;
+								  padding: 20px;
+								  text-align: center;
+								}
+
+								.price .grey {
+								  background-color: #ffff;
+								  font-size: 20px;
+								}
+
+
+								@media only screen and (max-width: 600px) {
+								  .columns {
+									width: 100%;
+								  }
+								}
+								</style>
+<style>
+	H4{
+	color:#FFFFFF;
+	text-shadow: -1px -1px #000000;
+	 font-style: italic;
+	}
+	</style>
+
+	</head>
+	
+	<body>
+		
+	    <div id="loadScreenWrapper">
+			<div id="loadScreen">
+				<div id="loader">
+					<h1 class="display-1"><img src="images/logo-full.png"></h1><br>
+					<h2 class="display-4">Please Wait...</h2>
+				</div>
+			</div>
+    	</div>
+		
+		<header>
+			<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top remove-anchor-tag">
+			  <a class="navbar-brand" href="#slider">
+				<img src="images/logo-full.png" class="d-inline-block align-top" alt="">
+			  </a>
+			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			  </button>
+
+			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+				  <li class="nav-item active">
+					<a class="nav-link" href="#slider">Home <span class="sr-only">(current)</span></a>
+				  </li>
+					
+				  <li class="drop-down nav-item">
+					<a href="#about" class="nav-link drop-down-toggle dropdown-toggle">About Us</a>
+					<ul class="drop-down-menu">
+						<a href="#about" data-list="tab-5"><li>Publications</li></a>
+						<a href="#about" data-list="tab-5"><li class="middle-list">Downloads</li></a>
+						<a href="#banking" data-list="#tab-5"><li class="middle-list">Quick Survey</li></a>
+					</ul>
+				  </li>
+						
+				
+				 <li class="nav-item">
+					<a class="nav-link" href="#news">News</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link" href="#banking">Banking & Mortgages</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link" href="#calculators">Calculators</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link" href="#property">Properties & Estates</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link" href="#contact-us">Contact Us</a>
+				  </li>
+				 
+				</ul>
+			  </div>
+			</nav>
+		</header>
+		<?php include 'includes/models.php';?>
+		
+		<div id="content">
+		<section id="slider">
+		
+			<div id="sliderWrapper">
+				<div class="carousel slide" data-ride="carousel">
+					<ol class="carousel-indicators">
+						<li data-target="#screenshot-carousel" data-slide-to="0" class="active"></li>
+						<li data-target="#screenshot-carousel" data-slide-to="1"></li>
+						<li data-target="#screenshot-carousel" data-slide-to="2"></li>
+						<li data-target="#screenshot-carousel" data-slide-to="3"></li>
+					</ol>
+
+					<div class="carousel-inner" role="listbox">
+		
+		                    <?php 
+								$sql="SELECT `itemrid`, `header1`, `header2`, `header_3`, `Image`, `Published?` FROM `carausel` WHERE `Published?`='Yes'";
+								$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+
+
+								 $count=0;
+								while ($row5 = mysqli_fetch_array($q1)) {
+                                $count++;
+								
+								$anime = array("fadeInDown", "fadeInUp", "fadeInLeft","fadeInRight");
+								shuffle($anime);
+							 
+                              $anyno=rand(0,3);
+							   $anynoy=rand(0,3);
+							  
+
+								?>
+					
+						<div class="carousel-item <?php if($count==1){?>active <?php } ?> >">
+							<div class="banner d-block w-100 overlay-black" style="background-image: url(Admin/images/<?php echo $row5['Image'];?>)"></div>
+							<div class="carousel-caption">
+								<h2 class="display-2 animated <?php echo $anime[$anyno]; ?>" style="animation-delay: 1s"><?php echo $row5['header1'];?> <span><?php echo $row5['header2'];?></span></h2>
+								<h3 class="display-4 animated <?php echo $anime[$anynoy]; ?>" style="animation-delay: 2s"><?php echo $row5['header_3'];?></h3>
+								<p><a href="#contact-us" class="display-4 animated zoomIn" style="animation-delay: 3s">Contact Us</a></p>
+							</div><!--end carousel-->
+						</div><!--end item-->
+						
+								<?php 
+								
+								} ?>
+					</div><!-- End Carousel inner -->
+					<a href="#screenshot-carousel" class="left carousel-control" data-slide="prev">
+						<span class="glyphicon glyphicon-chevron-left"></span>
+					</a>
+					<a href="#screenshot-carousel" class="right carousel-control" data-slide="next">
+						<span class="glyphicon glyphicon-chevron-right"></span>
+					</a>
+				</div><!-- End Carousel -->
+				
+				<div class="carousel-btn-grid remove-anchor-tag">
+					<a href="#contact-us"><div class="carousel-btn"><img src="images/contact_white.png">Contact Us</div></a>
+					<a href="#contact-us"><div class="carousel-btn"><img src="images/tariff-icon-white.png">Tariff Guide</div></a>
+					<a href="#contact-us"><div class="carousel-btn"><img src="images/feedback-white.png">Feedback</div></a>
+					<a href="https://www.facebook.com/Zambia-National-Building-Society-155197338006117" target="_blank"><div class="carousel-btn"><img src="images/facebook-white.png">Facebook</div></a>
+					<a href="https://www.twitter.com/societyzambia" target="_blank"><div class="carousel-btn"><img src="images/twitter-white.png">Twitter</div></a>
+					<a href="https://www.linkedin.com/company/zambia-national-building-society" target="_blank"><div class="carousel-btn"><img src="images/linkedin-white.png">Linkedin</div></a>
+					<a data-toggle="modal" href="" data-target="#youtube"><div class="carousel-btn"><img src="images/youtube-white.png">YouTube</div></a>
+				</div><!--end carousel-btns-->
+			</div><!--end sliderWrapper-->
+		
+		</section><!--end silder-->
+		
+		<section id="about">
+			<div class="row">
+				<div class="col-lg-4 section-img"></div>
+
+				<div class="col-lg-5 col-md-8 section-content">
+					<div class="content-panel tab-1-about animated fadeIn">
+					   
+						<h1 class="display-4 text-center">About Us</h1>
+
+						<p class="text-justify">		
+						<?php 
+								$sql="SELECT `article_id`, `At_Title`, `At_content`, `At_image`, `At_sub_cat`, `At_category`, 
+								`At_status` FROM `articles` WHERE `At_sub_cat`='30'";
+								$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+
+
+								while ($row5 = mysqli_fetch_array($q1)) {
+
+								$title=$row5['At_Title'];
+								echo $content=$row5['At_content'];
+								?>
+								
+								
+						</p>			
+						</p>
+							<?php if($row5['At_image']){ ?>	<img class="section-content-img" src="Admin/images/<?php echo $row5['At_image']; ?>"><?php } ?>
+							
+								<?php } ?>	
+					</div>
+					<div class="content-panel tab-1 animated fadeIn">
+					   
+						<h1 class="display-4 text-center">Our Drive and Passion</h1>
+
+						<p class="text-justify">		
+							<?php 
+								$sql="SELECT `article_id`, `At_Title`, `At_content`, `At_image`, `At_sub_cat`, `At_category`, 
+								`At_status` FROM `articles` WHERE `At_sub_cat`='12'";
+								$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+
+
+								while ($row5 = mysqli_fetch_array($q1)) {
+
+								$title=$row5['At_Title'];
+								echo $content=$row5['At_content'];
+								}
+							?>		
+						</p>		
+					</div>
+					
+					<div class="content-panel tab-2 animated fadeIn">
+
+						<h1 class="display-4 text-center">Board Of Directors</h1>
+						
+						<div class="card-deck">
+							<div class="row col-12 chairman-card" style="text-align='center'">
+								<?php 
+									$sql="SELECT * FROM `directors` WHERE `Role`='Chairman'";
+									$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+							   		$count=0;
+
+									while ($row5 = mysqli_fetch_array($q1)) {
+									$count++;	
+								?>
+								<div class="col-md-6">
+								<div class="card m-1">
+									<img class="card-img-top" src="images/staff/<?php echo $row5['picture']; ?>" >
+									<h6 class="card-title text-center p-2"><?php echo $row5['Title']; ?> <?php echo $row5['Firstname']; ?> <?php echo $row5['LastName']; ?></h6>
+									<h5 class="card-title text-center"><?php echo $row5['Role']; ?> </h5>
+								</div><!-- end card-body-->
+								</div>
+													 
+								<?php				} ?>
+											
+							</div>
+							
+							<div class="row">
+								<?php 
+									$sql="SELECT * FROM `directors` WHERE `Role`='Member'";
+									$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+							   		$count=0;
+
+									while ($row5 = mysqli_fetch_array($q1)) {
+									$count++;	
+								?>
+								<div class="card m-1">
+									<img class="card-img-top" src="images/staff/<?php echo $row5['picture']; ?>" >
+									<h6 class="card-title text-center p-2"><?php echo $row5['Title']; ?> <?php echo $row5['Firstname']; ?> <?php echo $row5['LastName']; ?></h6>
+									<h5 class="card-title text-center"><?php echo $row5['Role']; ?> </h5>
+								</div><!-- end card-body-->
+								<?php
+									 if($count==3 OR $count==6){
+										 echo '</div> <div class="row">';
+									 } ?>
+
+
+
+								<?php				} ?>
+
+							</div>
+	
+						</div><!--end card deck-->
+					</div>
+					
+					<div class="content-panel tab-3 animated fadeIn">
+						
+						<h1 class="display-4 text-center">Senior Management</h1>
+
+						<div class="card-deck">
+						 
+						 
+						 <div class="row col-12 chairman-card" style="text-align='center'">
+								<?php 
+									 $sql="SELECT * FROM `employees_tbl` WHERE `Category`='Senior Management' AND `jobRole` LIKE'%Managing Director%' ";
+									$q1=mysqli_query($conn,$sql);
+							   		$count=0;
+
+									while ($row5 = mysqli_fetch_array($q1)) {
+									$count++;	
+								?>
+								<div class="col-md-6">
+								<div class="card m-1">
+									<img class="card-img-top" src="images/staff/<?php echo $row5['Picture']; ?>" >
+									<h6 class="card-title text-center p-2"><?php echo $row5['Title']; ?> <?php echo $row5['first_name']; ?> <?php echo $row5['last_name']; ?></h6>
+									<h5 class="card-title text-center"><?php echo $row5['jobRole']; ?> </h5>
+								</div><!-- end card-body-->
+								</div>
+													 
+								<?php				} ?>
+											
+							</div>
+							<div class="row">
+								<?php 
+									
+									$sql="SELECT * FROM `employees_tbl` WHERE `Category`='Senior Management' AND `jobRole` NOT LIKE'%Managing Director%' ";
+									$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+									$count=0;
+
+									while ($row5 = mysqli_fetch_array($q1)) {
+									$count++;	
+								?>
+								<div class="card m-1">
+									<img class="card-img-top" src="images/staff/<?php echo $row5['Picture']; ?>" >
+									<h6 class="card-title text-center p-2"><?php echo $row5['first_name']; ?> <?php echo $row5['last_name']; ?></h6>
+									<h5 class="card-title text-center"><?php echo $row5['jobRole']; ?> </h5>
+								</div><!-- end card-body-->
+								<?php
+									 if($count==3 OR $count==6 Or $count==9 ){
+										 echo '</div> <div class="row">';
+									 }
+								} ?>
+							</div>
+
+									
+							
+						</div><!--end card deck-->
+					</div>
+					
+					<div class="content-panel tab-4 animated fadeIn">
+						<h1 class="display-4 text-center">Background</h1>
+						
+						<p class="text-justify">
+						<?php 
+								$sql="SELECT `article_id`, `At_Title`, `At_content`, `At_image`, `At_sub_cat`, `At_category`, 
+								`At_status` FROM `articles` WHERE `At_sub_cat`='18'";
+								$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+
+
+								while ($row5 = mysqli_fetch_array($q1)) {
+
+							$title=$row5['At_Title'];
+								echo $content=$row5['At_content'];
+								?>
+								
+								<?php if($row5['At_image']){ ?>	<img src="Admin/images/<?php echo $row5['At_image']; ?>"><?php } ?>
+								<?php } ?>	
+						</p>
+					</div>
+									
+					<div class="content-panel tab-5 animated fadeIn">
+						
+						<h1 class="display-4 text-center">Download Here</h1>
+						<p class="text-justify">
+						<?php   					  					 
+							$downloadSQL="SELECT `Categoty_id`, `name` FROM `downlaod_categories`";
+							$results=mysqli_query($conn,$downloadSQL);
+							$count=0;
+							while($row5=mysqli_fetch_array($results)){
+							$count++; 
+						?>
+							
+					<div id="accordion">
+						<div class="row">
+						  <div class="card col-12 p-0" data-toggle="collapse" data-target="#collapse<?php echo $count; ?>" aria-expanded="false" aria-controls="collapseOne<?php echo $count; ?>">
+							<div class="card-header p-1" id="headingOne <?php echo $count; ?>">
+							  <h5>
+								<button class="btn btn-link text-white">
+								  <?php  echo $row5['name']; ?>
+								</button>
+							  </h5>
+							</div>
+						  </div>
+
+							<div id="collapse<?php echo $count; ?>" class="collapse" aria-labelledby="headingOne <?php if($count==1){?>show<?php } ?>" data-parent="#about">
+							  <div class="card-body">
+								<?php getDownloadItems($row5['Categoty_id']); ?>
+							  </div>
+							</div>
+						  
+
+						</div>
+					</div><!--end accordion-->
+							
+<?php } ?>
+						</p>
+				</div>
+				<div class="content-panel tab-21-tenders animated fadeIn">
+					<h1 class="display-4 text-center">Running Tenders</h1>
+					
+					<?php 
+						$sql="SELECT `article_id`, `At_Title`, `At_content`, `At_image`, `At_sub_cat`, `At_category`, 
+						`At_status` FROM `articles` WHERE `At_sub_cat`='27'";
+						$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+
+
+						while ($row5 = mysqli_fetch_array($q1)) {
+
+						$title=$row5['At_Title'];
+						$content=$row5['At_content'];
+					?>
+						
+						
+						<a data-toggle="modal" data-target="#tenders<?php echo $row5['article_id']; ?>"><h5 class="section-content-btn"><?php echo $title=$row5['At_Title']; ?></h5></a>
+						<?php } ?>
+					
+						</div>
+
+                        <div class="content-panel tab-21-tenders-notice animated fadeIn">
+					<h1 class="display-4 text-center">Tender Award Notices</h1>
+					
+					<?php 
+					 $sql="SELECT `article_id`, `At_Title`, `At_content`, `At_image`, `At_sub_cat`, `At_category`, 
+						`At_status` FROM `articles` WHERE `At_sub_cat`='26' AND `article_id`!='206'";
+						$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+
+
+						while ($row5 = mysqli_fetch_array($q1)) {
+
+						$title=$row5['At_Title'];
+						$content=$row5['At_content'];
+					?>
+						
+						
+						<a data-toggle="modal" data-target="#tenders<?php echo $row5['article_id']; ?>"><h5 class="section-content-btn"><?php echo $title=$row5['At_Title']; ?></h5></a>
+						<?php } ?>
+						
+						</div>	
+                      <?php 
+
+						$sql="SELECT `article_id`, `At_Title`, `At_content`, `At_image`, `At_sub_cat`, `At_category`, 
+						`At_status` FROM `articles` WHERE `At_sub_cat`='28'";
+						$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+
+
+						while ($row5 = mysqli_fetch_array($q1)) {
+
+						$title=$row5['At_Title'];
+						$content=$row5['At_content'];
+					?>
+					<div class="content-panel tab-21-proc-plan animated fadeIn">
+					
+						<h1 class="display-4 text-center"><?php echo $title; ?></h1>
+						<p class="text-justify"> <?php echo $content; ?> <br></p><?php if($row5['Document']){
+							?> <a   class="button" target="_blank" style="animation-delay: 3s" href="Uploads/Document/<?php echo $row5['Document'] ?>">Download</a> <?php }?> 
+					</div>
+					
+					<?php  
+					
+																} ?>
+
+                   <?php 
+
+						$sql="SELECT `article_id`, `At_Title`, `At_content`, `At_image`, `At_sub_cat`, `At_category`, 
+						`At_status` FROM `articles` WHERE `article_id`='206'";
+						$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+
+
+						while ($row5 = mysqli_fetch_array($q1)) {
+
+						$title=$row5['At_Title'];
+						$content=$row5['At_content'];
+						 ?>
+					<div class="content-panel tab-21-main animated fadeIn">
+					
+						<h1 class="display-4 text-center"><?php echo $title; ?></h1>
+						<p class="text-justify"> <?php echo $content; ?> <br></p><
+							 </div>
+					
+					<?php  
+					
+																} ?>		
+						
+						
+						
+						
+				</div><!--end section-content-->
+				
+				<div class="col-lg-3 col-md-4 section-read-more">
+					<h1 class="display-4 text-center">About Us</h1>
+					<ul class="read-more-list">
+					     <li class="active" data-list="tab-1-about">About Us</li>
+						<li  data-list="tab-1">Mission & Vision</li>
+						<li data-list="tab-2">Board of Directors</li>
+						<li data-list="tab-3">Senior Management</li>
+						<li data-list="tab-4">Background</li>
+						<li data-list="tab-5">Publications & Downloads </li>
+						<li class="main-list-tab dropdown-toggle" data-list="tab-21-main"  data-toggle="collapse" data-target="#procurement">Procurement</li>
+						<div class="drop-down">
+							<ul class="p-0 collapse" id="procurement" data-list="tab-20" data-parent="#property">
+								<li data-list="tab-21-tenders">Running Tenders</li>
+								<li data-list="tab-21-tenders-notice">Tender Award Notices</li>
+								<li data-list="tab-21-proc-plan">Procurement Plan</li>
+	
+							</ul>
+						</div>
+						
+					</ul>
+				</div><!--end section-content-->
+				
+				<!--mobile list-->
+				<div id="accordion">
+					<div class="row">
+					  <div class="card" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+						<div class="card-header" id="headingOne">
+						  <h5 class="mb-0">
+							<button class="btn btn-link" >
+							  MISSION & VISION
+							</button>
+						  </h5>
+						</div>
+					  </div>
+
+						<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#about">
+						  <div class="card-body">
+						  	<h1 class="display-4 text-center">Our Drive and Passion</h1>
+
+							<p class="text-justify">		
+								<?php 
+									$sql="SELECT `article_id`, `At_Title`, `At_content`, `At_image`, `At_sub_cat`, `At_category`, 
+									`At_status` FROM `articles` WHERE `At_sub_cat`='12'";
+									$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+
+
+									while ($row5 = mysqli_fetch_array($q1)) {
+
+									$title=$row5['At_Title'];
+									echo $content=$row5['At_content'];
+									}
+								?>
+							  </p>
+						  </div>
+						</div>
+					  
+					  <div class="card" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+						<div class="card-header" id="headingTwo">
+						  <h5 class="mb-0">
+							<button class="btn btn-link collapsed">
+							 BOARD OF DIRECTORS
+							</button>
+						  </h5>
+						</div>
+					  </div>
+					  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#about">
+						  <div class="card-body">
+							  <div class="card-deck">
+								  <div class="row">
+									<?php 
+										$sql="SELECT * FROM `directors`";
+										$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+								   $count=0;
+
+										while ($row5 = mysqli_fetch_array($q1)) {
+										$count++;	
+									?>
+
+									<div class="card m-1">
+										<img class="card-img-top" src="images/staff/<?php echo $row5['picture']; ?>" >
+										<h5 class="card-title text-center"><?php echo $row5['Title']; ?> <?php echo $row5['Firstname']; ?> <?php echo $row5['LastName']; ?></h5>
+										<h6 class="card-title text-center"><?php echo $row5['Role']; ?> </h5>
+									</div><!-- end card-body-->
+									<?php
+										 if($count==3 OR $count==6){
+											 echo '</div> <div class="row">';
+										 } ?>
+
+									<?php				} ?>
+								  </div>
+							 </div>
+						  </div>
+					  </div>
+					  
+					  <div class="card" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+						<div class="card-header" id="headingThree">
+						  <h5 class="mb-0">
+							<button class="btn btn-link collapsed">
+							  SENIOR MANAGERS
+							</button>
+						  </h5>
+						</div>
+					  </div>
+						<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#about">
+							<div class="card-body">
+								<div class="card-deck">
+									<div class="row">
+									  <?php 
+										$sql="SELECT * FROM `employees_tbl` WHERE `Category`='Senior Management'";
+										$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+										$count=0;
+
+										while ($row5 = mysqli_fetch_array($q1)) {
+										$count++;							
+										?>
+
+										<div class="card m-1">
+											<img class="card-img-top" src="images/staff/<?php echo $row5['Picture']; ?>" >
+											<h5 class="card-title text-center"><?php echo $row5['first_name']; ?> <?php echo $row5['last_name']; ?></h5>
+											<h6 class="card-title text-center"><?php echo $row5['jobRole']; ?> </h5>
+										</div><!-- end card-body-->
+										<?php
+											 if($count==3 OR $count==6 Or $count==9 ){
+												 echo '</div> <div class="row">';
+											 }
+										} ?>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						
+						<div class="card" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+							<div class="card-header" id="headingFour">
+							  <h5 class="mb-0">
+								<button class="btn btn-link collapsed">
+								BACKGROUND
+								</button>
+							  </h5>
+							</div>
+						</div>
+						<div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#about">
+							<div class="card-body">
+								<?php 
+									$sql="SELECT `article_id`, `At_Title`, `At_content`, `At_image`, `At_sub_cat`, `At_category`, 
+									`At_status` FROM `articles` WHERE `At_sub_cat`='18'";
+									$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+
+
+									while ($row5 = mysqli_fetch_array($q1)) {
+
+									$title=$row5['At_Title'];
+									echo $content=$row5['At_content'];
+									}
+								?>							  
+							</div>
+						</div>
+					  
+					  <div class="card" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+						<div class="card-header" id="headingFive">
+						  <h5 class="mb-0">
+							<button class="btn btn-link collapsed">
+							 PUBLICATIONS & DOWNLOAD
+							</button>
+						  </h5>
+						</div>
+					  </div>
+						<div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#about">
+						  <div class="card-body">
+								<?php   
+							 		$downloadSQL="SELECT `Categoty_id`, `name` FROM `downlaod_categories`";
+									$results=mysqli_query($conn,$downloadSQL);
+									$count=0;
+									while($row5=mysqli_fetch_array($results)){
+									$count++; 
+								?>
+														
+								<div id="accordion">
+									<div class="row">
+									  <div class="card col-12 p-0" data-toggle="collapse" data-target="#collapseDownloads<?php echo $count; ?>" aria-expanded="false" aria-controls="collapseDownloads<?php echo $count; ?>">
+										<div class="card-header p-1" id="collapseDownload<?php echo $count; ?>">
+										  <h5>
+											<button class="btn btn-link text-white">
+											  <?php  echo $row5['name']; ?>
+											</button>
+										  </h5>
+										</div>
+										</div>
+										
+										<div id="collapseDownloads<?php echo $count; ?>" class="collapse" aria-labelledby="collapseDownload<?php echo $count; ?>" data-parent="#collapseFive">
+										  <div class="card-body">
+											<?php getDownloadItems($row5['Categoty_id']); ?>
+										  </div>
+										</div>
+									  
+
+									</div>
+								</div><!--end accordion-->
+														
+							<?php } ?>						  
+							</div>
+						</div>
+						  <div class="card" data-toggle="collapse" data-target="#collapseThirteen" aria-expanded="false" aria-controls="collapseThirteen">
+						<div class="card-header" id="headingThirteen">
+						  <h5 class="mb-0">
+							<button class="btn btn-link collapsed">
+							  TENDERS
+							</button>
+						  </h5>
+						</div>
+					  </div>
+						<div id="collapseThirteen" class="collapse" aria-labelledby="headingThirteen" data-parent="#about">
+						  <div class="card-body">
+                          <a data-toggle="modal" href="" data-target="#runningtenders"><h5 class="section-content-btn">Running Tenders</h5></a>
+						  <a data-toggle="modal" href="" data-target="#awardNotices"><h5 class="section-content-btn">Tender Award Notices</h5></a>
+						<a data-toggle="modal" href="" data-target="#proc_plan"><h5 class="section-content-btn">Procurement Plan</h5></a>
+						  </div>
+						</div>
+					 
+					  
+					
+						
+					  </div><!--end row-->
+					  	  
+					</div>
+				</div><!--end accordion-->
+			
+			</div>
+		</section>
+			
+		<section id="news">
+			<div class="news-bg"></div>
+			<div class="news-gird">
+				<h1 class="text-center display-1">Latest News</h1>
+
+				<div class="container">
+				
+
+
+					<div id="testimonial-slider" class="owl-carousel owl-theme">
+						<?php 
+							include 'includes/trunc.php';
+							$sql="SELECT `article_id`, `At_Title`, `At_content`, `At_image`, `At_sub_cat`, `At_category`, 
+							`At_status` FROM `articles` WHERE `At_sub_cat`='17' ORDER BY `article_id` DESC ";
+							$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+
+
+							while ($row5 = mysqli_fetch_array($q1)) {
+
+							$title=$row5['At_Title'];
+							 $content=$row5['At_content'];
+
+						?>	
+					
+						
+						<div class="testimonial">
+							<h5><?php echo $title; ?></h5>
+							<img style="height:250px" src="Admin/images/<?php echo $row5['At_image']; ?>">
+							<p class="description">
+							<?php 
+							
+							echo $shortdesc = myTruncate($content, 120);;
+
+							?>
+									</p>
+							<div class="testimonial-content">
+								<a data-toggle="modal" data-target="#news<?php echo $row5['article_id']; ?>"><div class="pic align-items-center"><p>Read More</p></div></a>
+							</div>
+						</div>
+
+							
+							
+						<?php } ?>	
+							</div>
+				
+				</div>
+
+							
+			</div><!--end about-gird-->
+
+		</section><!--end news-->
+			
+		<section id="banking">
+			<div class="row">
+				<div class="col-lg-3 col-md-4 section-read-more">
+					<h1 class="display-4 text-center">Banking & Mortgages</h1>
+					<ul class="read-more-list p-0">
+						<li class="main-list-tab active" data-list="tab-6">Banking</li>
+						<li class="main-list-tab" data-list="tab-7">Branch Network</li>
+						
+						<li class="main-list-tab dropdown-toggle"  data-list="tab-8-account-201"  data-toggle="collapse" data-target="#collapseTypesofAccounts">Types of Accounts</li>
+						<div class="drop-down">
+							<ul class="p-0 collapse" id="collapseTypesofAccounts" data-list="tab-20" data-parent="#banking">
+
+								<li data-list="tab-8-account-savings">Savings Accounts</li>
+								<li data-list="tab-8-account-invest">Investiment Accounts</li>
+								<li data-list="tab-8-account-current">Business Accounts</li>
+								
+							</ul>
+						</div>
+						
+						<li class="main-list-tab dropdown-toggle" data-list="tab-6-digital204"  data-toggle="collapse" data-target="#collapseMobileBanking" aria-expanded="false" aria-controls="collapseTwo">Digital Banking</li>
+						<div class="drop-down">
+							<ul class="p-0 collapse"  id="collapseMobileBanking" data-list="tab-20" aria-labelledby="heading1" data-parent="#banking">
+								<?php $sql="SELECT `article_id`, `At_Title`, `At_content`, `At_image`, `At_sub_cat`, `At_category`, 
+										`At_status` FROM `articles` WHERE `At_sub_cat`='22' AND `article_id`!='204'";
+										$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+
+
+										while ($row5 = mysqli_fetch_array($q1)) {
+
+										$title=$row5['At_Title'];
+										$content=$row5['At_content']; ?>
+									 
+								<li data-list="tab-6-digital<?php echo $row5['article_id']; ?>"><?php echo $row5['At_Title']; ?></li>
+								<?php  } ?>
+
+							</ul>
+						</div>
+						
+						<li class="main-list-tab" data-list="tab-18">Banking Loans</li>
+						
+						<li class="main-list-tab dropdown-toggle" data-list="tab-6-Mortgage205"  data-toggle="collapse" data-target="#collapseMortgages">Mortgages</li>
+						<div class="drop-down">
+							<ul class="p-0 collapse"  id="collapseMortgages" data-list="tab-20" data-parent="#banking">
+								<?php 
+									$sql="SELECT `article_id`, `At_Title`, `At_content`, `At_image`, `At_sub_cat`, `At_category`, 
+									`At_status` FROM `articles` WHERE `At_sub_cat`='24' AND `article_id`!='205'";
+									$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+
+
+									while ($row5 = mysqli_fetch_array($q1)) {
+
+									$title=$row5['At_Title'];
+									$content=$row5['At_content'];
+								?>
+								<li data-list="tab-6-Mortgage<?php echo $row5['article_id']; ?>"><?php echo $row5['At_Title']; ?></li>
+								<?php  } ?>
+								
+							</ul>
+						</div>
+						<li class="main-list-tab" data-list="tab-6_survey">QUICK SERVEY</li>
+					</ul>
+				</div><!--end section-content-->
+				
+				<div class="col-lg-5 col-md-8 section-content">
+					<div class="content-panel tab-6 animated fadeIn">
+					
+						<?php 
+							$sql="SELECT `article_id`, `At_Title`, `At_content`, `At_image`, `At_sub_cat`, `At_category`, 
+							`At_status` FROM `articles` WHERE `At_sub_cat`='1'";
+							$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+
+
+							while ($row5 = mysqli_fetch_array($q1)) {
+
+							$title=$row5['At_Title'];
+							$content=$row5['At_content'];
+						?>
+						
+						<h1 class="display-4 text-center"><?php echo $title; ?></h1>
+						<p class="text-justify"><?php echo $content; ?>
+						
+						</p>
+						<?php } ?>
+						</div>
+						
+						<?php $sql="SELECT `article_id`, `At_Title`, `At_content`, `At_image`, `At_sub_cat`, `At_category`, 
+							`At_status` FROM `articles` WHERE `At_sub_cat`='24'";
+							$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+
+
+							while ($row5 = mysqli_fetch_array($q1)) {
+
+							$title=$row5['At_Title'];
+							$content=$row5['At_content']; ?>
+							<div class="content-panel tab-6-Mortgage<?php echo $row5['article_id']; ?> animated fadeIn">
+				
+						<h1 class="display-4 text-center"><?php echo $title; ?></h1>
+						<p class="text-justify"><?php echo $content; ?>
+						<?php if($row5['At_image']){?><img class="section-content-img" src='Admin/images/<?php echo $row5['At_image']; ?>'><?php } ?>
+						</p></div>
+						<?php } ?>
+						
+						<?php $sql="SELECT `article_id`, `At_Title`, `At_content`, `At_image`, `At_sub_cat`, `At_category`, 
+							`At_status` FROM `articles` WHERE `At_sub_cat`='22'";
+							$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+
+
+							while ($row5 = mysqli_fetch_array($q1)) {
+
+							$title=$row5['At_Title'];
+							$content=$row5['At_content']; ?>
+							<div class="content-panel tab-6-digital<?php echo $row5['article_id']; ?> animated fadeIn">
+				
+						<h1 class="display-4 text-center"><?php echo $title; ?></h1>
+						<p class="text-justify"><?php echo $content; ?>
+						<?php if($row5['At_image']){?><img class="section-content-img" src='Admin/images/<?php echo $row5['At_image']; ?>'><?php } ?>
+						</p></div>
+						<?php } ?>
+						
+					
+					<div class="content-panel tab-7 animated fadeIn">
+						<?php 
+							$sql="SELECT `article_id`, `At_Title`, `At_content`, `At_image`, `At_sub_cat`, `At_category`, 
+							`At_status` FROM `articles` WHERE `At_sub_cat`='20'";
+							$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+
+
+							while ($row5 = mysqli_fetch_array($q1)) {
+
+							$title=$row5['At_Title'];
+							$content=$row5['At_content'];
+						?>
+						
+						<h1 class="display-4 text-center"><?php echo $title; ?></h1>
+						<p class="text-justify">
+						<img class="section-content-img" src='Admin/images/<?php echo $row5['At_image']; ?>'>
+						</p>
+						<?php } ?>
+						</div>
+						<div class="content-panel tab-18 animated fadeIn">
+												 
+
+							<h1 class="display-4 text-center">Banking Loans</h1>
+							<?php
+
+
+							$sql="SELECT * FROM `loan_types` WHERE `loan_name`!='Mortgage'";
+							$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+
+
+							while ($row5 = mysqli_fetch_array($q1)) {
+
+
+
+							 ?>
+							<div class="columns">
+							  <ul class="price" >
+								<li class="header" style="background-color:rgba(201,96,10,1)" ><?php echo $row5['loan_name']; ?></li>
+								
+								<li><?php echo $row5['textentered']; ?></li>
+								<li>Maximum tenure: <?php echo $row5['maximum_tanure']; ?> Months</li>
+
+								<li class="grey"><a href="#" class="Button">Apply</a></li>
+							  </ul>
+							</div>
+								
+								
+                            <?php } ?>
+								
+								
+						</div>
+						
+						
+						
+					<div class="content-panel tab-8-account-current animated fadeIn">
+					<h1 class="display-4 text-center">Business Accounts</h1>
+					<div class="row">
+					<?php 
+						//types of accounts
+					
+					
+						$sql="SELECT `article_id`, `At_Title`, `At_content`, `At_image`, `At_sub_cat`, `At_category`, 
+						`At_status` FROM `articles` WHERE `At_sub_cat`='43'";
+						$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+
+
+						while ($row5 = mysqli_fetch_array($q1)) {
+
+						$title=$row5['At_Title'];
+						$content=$row5['At_content'];
+						 ?>
+						 
+					     
+							
+					
+						 
+								<div id="thumbnail-preview" class=" col-lg-6 col-md-6 col-sm-12">
+								<a data-toggle="modal" data-target="#accounts<?php echo $row5['article_id']; ?>">
+									<div id="thumbnail-previewImg">
+										<div class=" overlay2">
+											<h2><?php echo $title=$row5['At_Title']; ?></h2><br>
+
+											<p class="text-center">Click to learn more</p><br>
+
+										
+										</div><!--end overlay2-->
+										<?php if($row5['At_image']) { ?>
+										<img src="Admin/images/<?php echo $row5['At_image']; ?>"/>
+										
+										<?php } ?>
+									</div><!--end thumbnail-previewImg-->
+									</a>
+								</div><!--end thumbnail-preview-->
+								
+						 
+					   
+						
+
+                        <?php } ?>	
+							</div>
+
+
+                      						
+						
+						</div>
+						<div class="content-panel tab-8-account-savings animated fadeIn">
+						<h1 class="display-4 text-center">Savings Accounts</h1>
+						 
+					   
+						<div class="row">
+						
+					<?php 
+						//types of accounts
+					
+					
+						$sql="SELECT `article_id`, `At_Title`, `At_content`, `At_image`, `At_sub_cat`, `At_category`, 
+						`At_status` FROM `articles` WHERE `At_sub_cat`='40'";
+						$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+
+                     $i=0;
+						while ($row5 = mysqli_fetch_array($q1)) {
+                        $i++;
+						
+						$content=$row5['At_content'];
+						
+						 ?>
+						 
+								<div id="thumbnail-preview" class=" col-lg-6 col-md-6 col-sm-12">
+								<a data-toggle="modal" data-target="#accounts<?php echo $row5['article_id']; ?>">
+									<div id="thumbnail-previewImg">
+										<div class=" overlay2">
+											<h2><?php echo $title=$row5['At_Title']; ?></h2><br>
+
+											<p class="text-center">Click to learn more</p><br>
+
+										
+										</div><!--end overlay2-->
+										<?php if($row5['At_image']) { ?>
+										<img src="Admin/images/<?php echo $row5['At_image']; ?>"/>
+										
+										<?php } ?>
+									</div><!--end thumbnail-previewImg-->
+									</a>
+								</div><!--end thumbnail-preview-->
+								
+						 
+					   
+						
+
+                        <?php } ?>	
+							</div>
+
+                      
+							
+							
+						</div>
+						<div class="content-panel tab-8-account-invest animated fadeIn">
+						<h1 class="display-4 text-center">Investment Accounts</h1>
+						<div class="row">
+					<?php 
+						//types of accounts
+					
+					
+						$sql="SELECT `article_id`, `At_Title`, `At_content`, `At_image`, `At_sub_cat`, `At_category`, 
+						`At_status` FROM `articles` WHERE `At_sub_cat`='41'";
+						$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+
+
+						while ($row5 = mysqli_fetch_array($q1)) {
+
+						$title=$row5['At_Title'];
+						$content=$row5['At_content'];
+						 ?>
+					
+								<div id="thumbnail-preview" class=" col-lg-6 col-md-6 col-sm-12">
+								<a data-toggle="modal" data-target="#accounts<?php echo $row5['article_id']; ?>">
+									<div id="thumbnail-previewImg">
+										<div class=" overlay2">
+											<h2><?php echo $title=$row5['At_Title']; ?></h2><br>
+
+											<p class="text-center">Click to learn more</p><br>
+
+										
+										</div><!--end overlay2-->
+										<?php if($row5['At_image']) { ?>
+										<img src="Admin/images/<?php echo $row5['At_image']; ?>"/>
+										
+										<?php } ?>
+									</div><!--end thumbnail-previewImg-->
+									</a>
+								</div><!--end thumbnail-preview-->
+								
+						 
+					   
+						
+
+                        <?php } ?>	
+							</div>
+
+                     					
+						
+						</div>
+						<div class="content-panel tab-6_survey animated fadeIn">
+						<h1 class="text-center display-4">Quick Survey</h1>
+						  <?php  
+												
+					  $propertySQL="SELECT `survey_id`, `Survey_title`, `startdate`, `enddate`, `status` FROM `surveys` WHERE `status`='Published' LIMIT 1 ";
+																$results=mysqli_query($conn,$propertySQL);
+																
+																while($row5=mysqli_fetch_array($results)){
+																 
+								?>
+						<form action="" Onsubmit='return false' id="Form_survey" method="submit" class="p-4">
+							<input class="form-control" type="text" id="FirstName" placeholder="First Name" required>
+							<br>
+                             <input class="form-control" type="text" id="LastName" placeholder="Last  Name" required><span></span><br>
+							<input type="email" class="form-control" id="Email" placeholder="Your Email" required><br>
+							<input type="text" class="form-control" hidden id="survey_id" value="<?php  echo $row5['survey_id']; ?>"  ><br>
+							<?php GetQuestions($row5['survey_id']) ?>
+							
+							
+							
+							<br>
+
+							<input class="section-content-btn" type="submit" onclick='' value="Submit" />
+						</form>
+						              <?php   
+											}
+            ?>
+						<div id="Survey_Response"> </div></div>
+					
+					
+					
+					
+					
+					
+					<div class="content-panel tab-10 animated fadeIn">
+						<h1 class="display-2 text-center">Company Profile</h1>
+						<h1 class="display-4 text-center">Download Here</h1>
+						<p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus quos cumque odio soluta harum error sequi laudantium, est nam perspiciatis eveniet maxime, esse possimus architecto sunt natus reprehenderit debitis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus quos cumque odio soluta harum error sequi laudantium, est nam perspiciatis eveniet maxime.<br><br>
+
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus quos cumque odio soluta harum error sequi laudantium, est nam perspiciatis eveniet maxime, esse possimus architecto sunt natus reprehenderit debitis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus quos cumque odio soluta harum error sequi laudantium, est nam perspiciatis eveniet maxime.</p>
+					</div>
+					
+					
+					<div class="content-panel tab-11 animated fadeIn">
+						<h1 class="display-2 text-center">Downloads</h1>
+						<h1 class="display-4 text-center">Download Here</h1>
+						<p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus quos cumque odio soluta harum error sequi laudantium, est nam perspiciatis eveniet maxime, esse possimus architecto sunt natus reprehenderit debitis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus quos cumque odio soluta harum error sequi laudantium, est nam perspiciatis eveniet maxime.<br><br>
+
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus quos cumque odio soluta harum error sequi laudantium, est nam perspiciatis eveniet maxime, esse possimus architecto sunt natus reprehenderit debitis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus quos cumque odio soluta harum error sequi laudantium, est nam perspiciatis eveniet maxime.</p>
+					</div>
+				</div><!--end section-content-->
+				
+				<!--mobile list-->
+				<div id="accordion">
+				  <div class="row">
+					  <div class="card" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven">
+						<div class="card-header" id="headingSeven">
+						  <h5 class="mb-0">
+							<button class="btn btn-link">
+							  BRANCH NETWORK
+							</button>
+						  </h5>
+						</div>
+					  </div>
+						<div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#banking">
+						  <div class="card-body">
+							<?php 
+								$sql="SELECT `article_id`, `At_Title`, `At_content`, `At_image`, `At_sub_cat`, `At_category`, 
+								`At_status` FROM `articles` WHERE `At_sub_cat`='20'";
+								$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+
+
+								while ($row5 = mysqli_fetch_array($q1)) {
+
+								$title=$row5['At_Title'];
+								$content=$row5['At_content'];
+							 ?>
+						
+						<h1 class="display-4 text-center"><?php echo $title; ?></h1>
+						<p class="text-justify">
+						<img class="section-content-img" src='Admin/images/<?php echo $row5['At_image']; ?>'>
+						</p>
+						<?php } ?>  </div>
+						</div>
+					  
+					  <div class="card" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+						<div class="card-header" id="headingEight">
+						  <h5 class="mb-0">
+							<button class="btn btn-link collapsed">
+							  TYPES OF ACCOUNTS
+							</button>
+						  </h5>
+						</div>
+					  </div>
+						<div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#banking">
+						  <div class="card-body">
+						  <div class="row">
+							<?php 
+
+								$sql="SELECT * FROM `articles` WHERE `At_category`='9'";
+								$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+
+
+								while ($row5 = mysqli_fetch_array($q1)) {
+
+							?>
+
+					<div id="thumbnail-preview" class=" col-lg-6 col-md-6 col-sm-12">
+								<a data-toggle="modal" data-target="#accounts<?php echo $row5['article_id']; ?>">
+									<div id="thumbnail-previewImg">
+										<div class=" overlay2">
+											<h2><?php echo $title=$row5['At_Title']; ?></h2><br>
+
+											<p class="text-center">Click to learn more</p><br>
+
+										
+										</div><!--end overlay2-->
+										<img src="Admin/images/<?php echo $row5['At_image']; ?>"/>
+									</div><!--end thumbnail-previewImg-->
+									</a>
+								</div><!--end thumbnail-preview-->
+	
+					<?php  
+					
+																} ?>
+						</div>
+						  </div>
+						</div>
+					  
+					  <div class="card" data-toggle="collapse" data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+						<div class="card-header" id="headingNine">
+						  <h5 class="mb-0">
+							<button class="btn btn-link collapsed">
+							  DIGITAL BANKING
+							</button>
+						  </h5>
+						</div>
+					  </div>
+						<div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#banking">
+						  <div class="card-body">
+                          <?php 
+					
+					
+							$sql="SELECT `article_id`, `At_Title`, `At_content`, `At_image`, `At_sub_cat`, `At_category`, 
+							`At_status` FROM `articles` WHERE `At_sub_cat`='22' AND `article_id`!='204'";
+							$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+
+
+							while ($row5 = mysqli_fetch_array($q1)) {
+
+						  ?>
+					
+
+				<a data-toggle="modal" href="" data-target="#digital<?php echo $row5['article_id']; ?>"><h5 class="section-content-btn"><?php echo $title=$row5['At_Title']; ?></h5></a>
+	
+					<?php  
+					
+																} ?>
+						  </div>
+						</div>
+					  
+					  <div class="card" data-toggle="collapse" data-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+						<div class="card-header" id="headingTen">
+						  <h5 class="mb-0">
+							<button class="btn btn-link collapsed">
+							  BANKING LOANS
+							</button>
+						  </h5>
+						</div>
+					  </div>
+						<div id="collapseTen" class="collapse" aria-labelledby="headingTen" data-parent="#banking">
+						  <div class="card-body">
+						  <h1 class="display-4 text-center">BANKING LOANS</h1>
+								<?php
+
+									$sql="SELECT `loan_id`, `loan_name`, `interest`, `maximum_tanure`, `minum_tanure` FROM `loan_types` WHERE `loan_name`!='Mortgage'";
+									$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+
+
+									while ($row5 = mysqli_fetch_array($q1)) {
+
+
+
+								?>
+								<div class="columns">
+								  <ul class="price" >
+									<li class="header" style="background-color:rgba(201,96,10,1)" ><?php echo $row5['loan_name']; ?></li>
+									
+									<li>Get Upto ZMW 1,000,000.00</li>
+									<li>Maximum tenure: <?php echo $row5['maximum_tanure']; ?> Months</li>
+									
+									<li class="grey"><a href="#" class="Button">Apply</a></li>
+								  </ul>
+								</div>
+								
+								
+                            <?php } ?>
+								
+						  </div>
+						</div>
+					  
+					  <div class="card" data-toggle="collapse" data-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
+						<div class="card-header" id="headingEleven">
+						  <h5 class="mb-0">
+							<button class="btn btn-link collapsed">
+							  MORTGAGES
+							</button>
+						  </h5>
+						</div>
+					  </div>
+						<div id="collapseEleven" class="collapse" aria-labelledby="headingEleven" data-parent="#banking">
+						  <div class="card-body">
+                            <?php 
+
+								$sql="SELECT `article_id`, `At_Title`, `At_content`, `At_image`, `At_sub_cat`, `At_category`, 
+								`At_status` FROM `articles` WHERE `At_sub_cat`='24'";
+								$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+
+
+								while ($row5 = mysqli_fetch_array($q1)) {
+
+
+							?>
+					
+
+				<a data-toggle="modal" href="" data-target="#mortgage<?php echo $row5['article_id']; ?>"><h5 class="section-content-btn"><?php echo $title=$row5['At_Title']; ?></h5></a>
+	
+					<?php  
+					
+																} ?>
+						  </div>
+						</div>
+						    <div class="card" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+							<div class="card-header" id="headingSix">
+							  <h5 class="mb-0">
+								<button class="btn btn-link collapsed">
+								  QUICK SERVEY
+								</button>
+							  </h5>
+							</div>
+						</div>
+						<div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#banking">
+						  <div class="card-body">
+                           <h1 class="text-center display-4">QUICK SURVEY</h1>
+						     <?php  
+							
+  $propertySQL="SELECT `survey_id`, `Survey_title`, `startdate`, `enddate`, `status` FROM `surveys` WHERE `status`='Published' LIMIT 1 ";
+											$results=mysqli_query($conn,$propertySQL);
+											
+											while($row5=mysqli_fetch_array($results)){
+											 
+            ?>
+						<form action="" Onsubmit='return false' id="Form_survey" method="submit" class="p-4">
+							<input class="form-control" type="text" id="FirstName" placeholder="First Name" required>
+							<br>
+                             <input class="form-control" type="text" id="LastName" placeholder="Last  Name" required><span></span><br>
+							<input type="email" class="form-control" id="Email" placeholder="Your Email" required><br>
+							<input type="text" class="form-control" hidden id="survey_id" value="<?php  echo $row5['survey_id']; ?>"  ><br>
+							<?php GetQuestions($row5['survey_id']) ?>
+							
+							
+							
+							<br>
+
+							<input class="section-content-btn" type="submit" onclick='' value="Submit" />
+						</form>
+						              <?php   
+											}
+            ?>
+						<div id="Survey_Response1"> </div>
+						  </div>
+						</div>
+					  
+					</div><!--row-->
+				</div><!--end accordion-->
+				
+				<div class="col-lg-4 section-img"></div>
+				
+			</div>
+		</section>
+			
+			</section>
+			
+			<section id="calculators">
+			<div class="row">
+				<div class="col-lg-4 col-md-12 section-content-left">
+					<div class="overlay-white"></div>
+					<div class="section-content">
+						<h1 class="display-4 text-center fade-in-left">Banking Loan Calculator</h1>
+						<h1 class="text-center fade-in-left">Calculate Your Repayments</h1>
+						<form action="" Onsubmit='Return false' id="loan_calculator_form" method="submit" class="p-4">
+							<select class="input-box p-3 m-2 fade-in-left"  name="input"  id="product_loan" required >
+							<option value=''>--Select Product--</option>
+								<?php 
+				$prod_sql="SELECT `loan_id`, `loan_name`, `interest`, `maximum_tanure`, `minum_tanure` FROM `loan_types`  WHERE `loan_name`!='Mortgage'";
+				$product = mysqli_query($conn,$prod_sql);
+                    while ($row = mysqli_fetch_array($product)) {
+						?>
+							<option value='<?php echo $row['interest']; ?>'><?php echo $row['loan_name']; ?></option>
+					<?php } ?>
+							</select>
+							<br>
+                             <input class="input-box p-3 m-2 fade-in-left" type="number" name="input"  placeholder="Period (Months)" id="period_loan" required><span id="period_response_loan" ></span><br>
+							<input class="input-box p-3 m-2 fade-in-left" type="number" name="input" placeholder="Amount (ZMK)" id="amount_loan" required ><br>
+
+							<input class="p-3 m-2 fade-in-left" type="submit" onclick='' value="Calculate" id="calculate-btn" />
+						</form>
+						<div id="loan_repayment_response"> </div>
+					</div><!--end section-content-->
+				</div><!--end section-content-left-->
+
+				<div class="col-lg-4 section-img"></div>
+
+				<div class="col-lg-4 col-md-12  section-content-right">
+					<div class="overlay-white"></div>
+					<div class="section-content">
+						<h1 class="display-4 text-center fade-in-right">Mortgage Loan Calculator</h1>
+						<h1 class="text-center fade-in-right">Calculate Your Repayments</h1>
+						<form action="" method="POST" Onsubmit='Return false' class="p-4" id='Modgage_calculator_form'>
+							<select class="input-box p-3 m-2 fade-in-right"  name="input"  id="product_modgage" required>
+							<option value=''>--Select Product--</option>
+								<?php 
+				$prod_sql="SELECT `loan_id`, `loan_name`, `interest`, `maximum_tanure`, `minum_tanure` FROM `loan_types` WHERE `loan_name`='Mortgage'";
+				$product = mysqli_query($conn,$prod_sql);
+                    while ($row = mysqli_fetch_array($product)) {
+						?>
+							<option value='<?php echo $row['interest']; ?>'><?php echo $row['loan_name']; ?></option>
+					<?php } ?>
+							</select>
+							<br>
+                             <input class="input-box p-3 m-2 fade-in-right" type="number" name="input" placeholder="Period (Months)"  id="period_Mortgage" required><span id="period_response_mortgage" ></span><br>
+							<input class="input-box p-3 m-2 fade-in-right" type="number" name="input" placeholder="Amount (ZMK)" id="amount_Mortgage" required><br>
+
+							<input class="p-3 m-2 fade-in-right" type="submit" onclick='' value="Calculate" id="calculate-btn" />
+						</form>
+						<div id="Mortgage_repayment_response"> </div>
+					</div><!--end section-content-->
+					
+				</div><!--end section-content-right-->
+				
+			</div><!--row-->
+		</section>
+		
+		<section id="property">
+			<div class="row">
+				<div class="col-lg-4 section-img"></div>
+				
+				<div class="col-lg-5 col-md-8 section-content">
+					<?php 
+
+						$sql="SELECT * FROM `articles` WHERE `At_category`='6'";
+						$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+
+
+						while ($row5 = mysqli_fetch_array($q1)) {
+
+						$title=$row5['At_Title'];
+						$content=$row5['At_content'];
+					?>
+					<div class="content-panel tab-21-prop-<?php echo $row5['article_id']; ?> animated fadeIn">
+					
+						<h1 class="display-4 text-center"><?php echo $title; ?></h1>
+						<p class="text-justify"> <?php echo $content; ?> <br></p><?php if($row5['Document']){
+							?> <a   class="section-content-btn" target="_blank" style="animation-delay: 3s" href="Uploads/Document/<?php echo $row5['Document'] ?>">Download</a> <?php }?> </div>
+					
+					<?php  
+					
+																} ?>
+																
+																<div class="content-panel tab-21-prop-sale ?> animated fadeIn">
+					
+						<h1 class="display-4 text-center">Properties For Sale</h1>
+						<div class="row">
+									   <?php   
+								 
+  $propertySQL="SELECT * FROM `property` INNER JOIN `properties_imagess` ON `property`.`prop_id`=`properties_imagess`.`prop_id`  WHERE  `status`='Available' AND `featured`='Yes' AND `properties_imagess`.`thumb`='1' ORDER BY RAND() ";
+											$results=mysqli_query($conn,$propertySQL);
+											
+											while( $row5=mysqli_fetch_array($results)){
+											 
+            ?>
+								<div id="thumbnail-preview" class=" col-lg-6 col-md-6 col-sm-12">
+								<a data-toggle="modal" href="" data-target="#gallery-modal_<?php echo $row5['prop_id']; ?>">
+									<div id="thumbnail-previewImg">
+										<div class=" overlay2">
+											<h2> <?php echo $row5['Name']; ?></h2>
+
+											<h2>ZMW <?php echo $row5['price_range']; ?></h2>
+									
+									<div class="row">
+										<div class="col-sm-6">
+										<p>Location<br>
+										Plot Size
+										</p>
+										</div>
+
+										<div class="col-sm-6">
+										<p><?php echo $row5['location_Area']; ?><br>
+
+										<?php echo $row5['plot_size_length']; ?> By <?php echo $row5['plot_size_width']; ?>
+										</p>
+											</div>
+											
+											</div>
+											<span align="center">read more</span>
+											
+										</div><!--end overlay2-->
+										<img src="Admin/images/<?php echo $row5['name'];?>" />
+									</div><!--end thumbnail-previewImg-->
+									</a>
+								</div><!--end thumbnail-preview-->
+								
+								
+								<?php } ?>
+
+								
+							</div><!--end row-->
+						
+						<p class="text-justify">  </div>
+																
+																
+																
+																			
+					
+				</div><!--end section-content-->
+				
+				<div class="col-lg-3 col-md-4 section-read-more">
+					<h1 class="display-4 text-center">Properties & Estates</h1>
+					<ul class="read-more-list">
+						<?php 
+
+							$sql="SELECT `article_id`, `At_Title`, `At_content`, `At_image`, `At_sub_cat`, `At_category`, 
+							`At_status` FROM `articles` WHERE `At_category`='6'";
+							$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+                             $i=0;
+
+							while ($row5 = mysqli_fetch_array($q1)) {
+
+								$i++;
+																$title=$row5['At_Title'];
+																$content=$row5['At_content'];
+																 ?>
+						<li data-list="tab-21-prop-<?php echo $row5['article_id']; ?> "  class="<?php if($i==1){ echo 'active';} ?>"><?php echo $title; ?></li>
+						<?php } ?>
+						<li data-list="tab-21-prop-sale"  >Properties for sale</li>
+						
+						
+						
+					</ul>
+				</div><!--end section-content-->
+				
+				
+				<!--mobile list-->
+				<div id="accordion">
+				  <div class="row">
+					   <?php 
+
+							$sql="SELECT * FROM `articles` WHERE `At_category`='6'";
+							$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+
+
+							while ($row5 = mysqli_fetch_array($q1)) {
+
+							$title=$row5['At_Title'];
+							$content=$row5['At_content'];
+						?>
+					  <div class="card" data-toggle="collapse" data-target="#collapseTwelve<?php echo $row5['article_id']; ?>" aria-expanded="true" aria-controls="collapseTwelve">
+						<div class="card-header" id="headingTwelve">
+						  <h5 class="mb-0">
+							<button class="btn btn-link">
+							  <?php echo $title; ?>
+							</button>
+						  </h5>
+						</div>
+					  </div>
+						<div id="collapseTwelve<?php echo $row5['article_id']; ?>" class="collapse" aria-labelledby="headingTwelve" data-parent="#property">
+						  <div class="card-body">
+						  <?php echo $content; ?>
+						  <?php if($row5['Document']){
+							?> <a   class="button" target="_blank" style="animation-delay: 3s" href="Uploads/Document/<?php echo $row5['Document'] ?>">Download</a> <?php }?>
+							  </div>
+						</div>
+						  
+						<?php } ?>
+						  <div class="card" data-toggle="collapse" data-target="#collapseTwelvesale" aria-expanded="true" aria-controls="collapseTwelvesale">
+						<div class="card-header" id="headingTwelve">
+						  <h5 class="mb-0">
+							<button class="btn btn-link">
+							  Properties For Sale
+							</button>
+						  </h5>
+						</div>
+					  </div>
+						<div id="collapseTwelvesale" class="collapse" aria-labelledby="headingTwelve" data-parent="#property">
+						  <div class="card-body">
+						  <div class="row">
+									   <?php   
+								 
+  $propertySQL="SELECT * FROM `property` INNER JOIN `properties_imagess` ON `property`.`prop_id`=`properties_imagess`.`prop_id` INNER JOIN `asset_categories` ON  `asset_categories`.`category_id`=`property`.`prop_category_id` WHERE  `status`='Available' AND `featured`='Yes' AND `properties_imagess`.`thumb`='1' ORDER BY RAND() ";
+											$results=mysqli_query($conn,$propertySQL);
+											
+											while( $row5=mysqli_fetch_array($results)){
+											 
+            ?>
+								<div id="thumbnail-preview" class=" col-lg-6 col-md-6 col-sm-12">
+								<a data-toggle="modal" href="" data-target="#gallery-modal_<?php echo $row5['prop_id']; ?>">
+									<div id="thumbnail-previewImg">
+										<div class=" overlay2">
+											<h2> <?php echo $row5['Name']; ?></h2>
+
+											<h2>ZMW <?php echo $row5['price_range']; ?></h2>
+									
+									<div class="row">
+										<div class="col-sm-6">
+										<p>Location<br>
+										Plot Size
+										</p>
+										</div>
+
+										<div class="col-sm-6">
+										<p><?php echo $row5['location_Area']; ?><br>
+
+										<?php echo $row5['plot_size_length']; ?> By <?php echo $row5['plot_size_width']; ?>
+										</p>
+											</div>
+											
+											</div>
+											<span align="center">read more</span>
+											
+										</div><!--end overlay2-->
+										<img src="Admin/images/<?php echo $row5['name'];?>" />
+									</div><!--end thumbnail-previewImg-->
+									</a>
+								</div><!--end thumbnail-preview-->
+								
+								
+								<?php } ?>
+
+								
+							</div><!--end row-->
+						  
+						  
+							  </div>
+						</div>
+					
+					</div>
+				</div><!--end accordion-->
+				
+			</div>
+		</section>
+			
+		<section id="contact-us">
+			<div class="row">
+				<div class="col-lg-3 col-md-4 section-read-more">
+					<h1 class="display-4 text-center">Contact Us</h1>
+					<ul class="read-more-list p-0">
+						<li class="main-list-tab active" data-list="tab-30-main">Contact Us</li>
+						<li class="main-list-tab" data-list="tab-30-feedback">Feedback</li>
+						<li class="main-list-tab" data-list="tab-30-compalaint">Complaints</li>
+						<li class="main-list-tab" data-list="tab-30-jobs">Career Oppotunities</li>
+						<li class="main-list-tab" data-list="tab-30-atm">ATM Locater</li>
+						<li class="main-list-tab" data-list="tab-301">Main Branch</li>
+						<li class="main-list-tab dropdown-toggle" data-list="tab-301"  data-toggle="collapse" data-target="#collapseBranches">Other Branches</li>
+						<div class="drop-down">
+							<ul class="p-0 collapse" id="collapseBranches" data-list="tab-20" data-parent="#contact-us">
+							 
+							<?php 
+								$sql="SELECT * FROM `branch_tbl` WHERE `branch_name`!='Main Branch'";
+								$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+
+
+								while ($row5 = mysqli_fetch_array($q1)) {
+
+							 ?>
+						
+								<li data-list="tab-30<?php echo $row5['branch_id']; ?>" onclick="LoadMap(<?php echo $row5['branch_id']; ?>)"><?php echo $row5['branch_name']; ?></li>
+								
+							<?php } ?>
+
+							</ul>
+						</div>
+					
+					
+					</ul>
+				</div><!--end section-content-->
+				
+				<div class="col-lg-5 col-md-8 section-content">
+				<div class="content-panel tab-30-main animated fadeIn">
+				<h1 class="display-4 text-center">Contact Us</h1>
+					<form action="" onsubmit="return false" method="" class="p-4">
+							<input class="input-box p-3 m-2" type="text" name="input" placeholder="Name" id="Name" >
+
+							<input class="input-box p-3 m-2" type="text" name="input" placeholder="Email" id="email" ><br>
+							
+							<input class="input-box p-3 m-2" type="text" name="input" placeholder="Mobile Number" id="Number" >
+							
+							<input class="input-box p-3 m-2" type="text" name="input" placeholder="Subject" id="Subject" ><br>
+						
+							<textarea class="input-box message" type="text" name="input" placeholder="Message" id="message" ></textarea><br>
+						
+							<input class="p-3 m-2" type="submit" value="Send" onclick="sendEnquiry()" id="send-btn" />
+					</form>
+					<div id="ResponseMesage"></div>
+					</div>
+						<div class="content-panel tab-30-compalaint animated fadeIn">
+				<h1 class="display-4 text-center">Send your Complaint Here</h1>
+					<form action="" onsubmit="return false" method="" class="p-4">
+							<input class="input-box p-3 m-2" type="text" name="input" placeholder="Name" id="Name1" >
+
+							<input class="input-box p-3 m-2" type="text" name="input" placeholder="Email" id="email1" ><br>
+							
+							<input class="input-box p-3 m-2" type="text" name="input" placeholder="Mobile Number" id="Number1" >
+							
+							<input class="input-box p-3 m-2" type="text" name="input" placeholder="Subject" id="Subject1" ><br>
+						
+							<textarea class="input-box message" type="text" name="input" placeholder="Complaint Details" id="message1" ></textarea><br>
+						
+							<input class="p-3 m-2" type="submit" value="Send" onclick="sendComplaint()" id="send-btn" />
+					</form>
+					<div id="ResponseComplaints"></div>
+					</div>
+					
+					<div class="content-panel tab-30-feedback animated fadeIn">
+						<h1 class="display-4 text-center">Feedback</h1>
+						
+						
+						
+						<h1>Rate Our Services</h1>
+						
+							<select  onChange='LoadFeedbackForm()' id="feeddrop" class="form-control align-items-center" searchable="Search here..">
+							  <option value="" disabled selected>--Choose The Product--</option>
+							   <?php 
+
+													$sql="SELECT `survey_id`, `Survey_title`, `startdate`, `enddate`, `status`, `category_id` FROM `surveys` WHERE `category_id`='2' AND `status`='Published'";
+													$q1=mysqli_query($conn,$sql);
+
+
+													while ($row5 = mysqli_fetch_array($q1)) {
+
+
+											  ?>
+							  <option   value="<?php echo $row5['survey_id'] ?>"><?php echo $row5['Survey_title'] ?></option>
+							  
+  
+								<?php  
+					
+																} ?>
+																
+																
+ 
+								</select>
+								<br><br>
+								<div id="feebackplace" ></div>
+								<div id="feebackResponse1" ></div>
+								
+						
+
+					</div>
+				
+					<?php 	
+						$sql="SELECT `branch_id`, `branch_name`, `Address1`, `Address 2`, `Town`, `Contact_no1`, `Contact_no2`, `email`, `google_map` FROM `branch_tbl`";
+						$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+
+
+						while ($row5 = mysqli_fetch_array($q1)) {
+
+						$title=$row5['branch_name'];
+				 	?>
+					
+					<div class="content-panel tab-30<?php echo $row5['branch_id']; ?> animated fadeIn">
+					
+						<h1 class="display-4 text-center"><?php echo $title; ?></h1>
+						<p class="text-justify"> <?php  ?> <br></p> 
+						<div class="col-lg-12">
+                        
+							<div class="row">
+								<div class="col-lg-4 col-md-4 col-sm-6">
+									<h2><img style="height:30px; width:30px;" src="images/location-icon.png"></h2>
+									<p><?php echo $row5['Address1']; ?>, <?php echo $row5['Address 2']; ?></p>
+									<p><?php echo $row5['Town']; ?>, Zambia</p>
+								</div>
+
+								<div class="col-lg-4 col-md-4 col-sm-6">
+									<h2><img style="height:30px; width:30px;" src="images/mail-icon.png"></h2>
+									<p id="branch_<?php echo $row5['branch_id']; ?> "><?php echo $row5['email']; ?></p>
+								</div>
+
+								<div class="col-lg-4 col-md-4 col-sm-6">
+									<h2><img style="height:30px; width:30px;" src="images/handset-icon.png"></h2>
+									<p><?php echo $row5['Contact_no1']; ?> <?php if($row5['Contact_no2'])?> / <?php echo $row5['Contact_no2']; ?></p>
+								</div>   
+
+								<div class="col-lg-4 col-md-4 col-sm-6">
+
+									<a href="https://tweeter.com">
+										<img style="height:30px; width:30px;" src="images/whatsapp-256.png">
+									</a>
+									<a href="https://web.facebook.com/">
+										<img style="height:30px; width:30px;" src="images/facebook_circle-512.png">
+									</a>
+									<a href="https://tweeter.com">
+										<img style="height:30px; width:30px;" src="images/Twitter.png">
+									</a>
+									<p></p>
+
+								</div>
+							</div>
+
+							<div class="row" id="<?php echo $row5['branch_id']; ?>">
+							
+							</div>
+                    	</div>
+					</div>
+						
+					
+					<?php  
+					
+																} ?>
+						
+<div class="content-panel tab-30-jobs animated fadeIn">	
+<h1 class="display-4 text-center">Job Vacancies</h1>
+					
+					
+				  <?php 
+
+						$sql="SELECT `article_id`, `At_Title`, `At_content`, `At_image`, `At_sub_cat`, `At_category`, 
+						`At_status` FROM `articles` WHERE `At_sub_cat`='29'";
+						$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+
+
+						while ($row5 = mysqli_fetch_array($q1)) {
+
+
+				  ?>
+					
+
+				<a data-toggle="modal" href="" data-target="#jobs<?php echo $row5['article_id']; ?>"><h5 class="section-content-btn"><?php echo $title=$row5['At_Title']; ?></h5></a>
+	
+					<?php  
+					
+																} ?>
+
+                   </div>	
+<div class="content-panel tab-30-atm animated fadeIn">	
+<h1 class="display-4 text-center">Find ATM Machine</h1>
+				<div class="align-items-center">	
+			<select  onChange='LoadATM()' id="city" class="form-control align-items-center" searchable="Search here..">
+  <option value="" disabled selected>--Choose the City/Area--</option>
+   <?php 
+
+						$sql="SELECT `Id`, `city`, `Loacation_coodinates`, `place_location` FROM `atms`";
+						$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+
+
+						while ($row5 = mysqli_fetch_array($q1)) {
+
+
+				  ?>
+  <option   value="<?php echo $row5['Id'] ?>"><?php echo $row5['city'] ?>-<?php echo $row5['place_location'] ?></option>
+  
+  
+					<?php  
+					
+																} ?>
+																
+																
+ 
+</select>
+
+</div>
+<br><br>
+<div id="map" ></div>
+
+  
+				 
+					
+
+				
+
+                   </div>					   
+					
+					
+				</div><!--end section-content-->
+				
+				<!--mobile list-->
+				<div id="accordion">
+				  <div class="row">
+					  
+					  <div class="card" data-toggle="collapse" data-target="#collapseFeedback" aria-expanded="false" aria-controls="collapseFeedback">
+						<div class="card-header" id="headingFeedback">
+						  <h5 class="mb-0">
+							<button class="btn btn-link collapsed">
+							  FEEDBACK
+							</button>
+						  </h5>
+						</div>
+					  </div>
+					  
+						<div id="collapseFeedback" class="collapse" aria-labelledby="headingFeedback" data-parent="#contact-us">
+						  <div class="card-body">
+						  
+							
+						
+							<h1 class="display-4 text-center">Feedback</h1>
+						
+						<h1>Rate our services</h1>
+						
+							<select  onChange='LoadFeedbackForm_mobile()' id="feeddrop_mobile" class="form-control align-items-center" searchable="Search here..">
+							  <option value="" disabled selected>--Choose The Product--</option>
+							   <?php 
+
+													$sql="SELECT `survey_id`, `Survey_title`, `startdate`, `enddate`, `status`, `category_id` FROM `surveys` WHERE `category_id`='2' AND `status`='Published'";
+													$q1=mysqli_query($conn,$sql);
+
+
+													while ($row5 = mysqli_fetch_array($q1)) {
+
+
+											  ?>
+							  <option   value="<?php echo $row5['survey_id'] ?>"><?php echo $row5['Survey_title'] ?></option>
+							  
+  
+								<?php  
+					
+																} ?>
+																
+																
+ 
+								</select>
+								<br><br>
+								<div id="feebackplace_mobile" ></div>
+								<div id="feebackResponse_mobile" ></div>
+								
+						
+							  
+						  </div>
+						</div>
+						
+							
+				 <div class="card" data-toggle="collapse" data-target="#collapseComplaint" aria-expanded="false" aria-controls="collapseComplaint">
+						<div class="card-header" id="headingComplaint">
+						  <h5 class="mb-0">
+							<button class="btn btn-link collapsed">
+							 COMPLAINTS
+							</button>
+						  </h5>
+						</div>
+					  </div>
+					  <div id="collapseComplaint" class="collapse" aria-labelledby="headingComplaint" data-parent="#contact-us">
+						  <div class="card-body">
+						  <h1 class="display-4 text-center">Send your Complaint Here</h1>
+					<form action="" onsubmit="return false" method="" class="p-4">
+							<input class="input-box p-3 m-2" type="text" name="input" placeholder="Name" id="Name1M" >
+
+							<input class="input-box p-3 m-2" type="text" name="input" placeholder="Email" id="email1M" ><br>
+							
+							<input class="input-box p-3 m-2" type="text" name="input" placeholder="Mobile Number" id="Number1M" >
+							
+							<input class="input-box p-3 m-2" type="text" name="input" placeholder="Subject" id="Subject1M" ><br>
+						
+							<textarea class="input-box message" type="text" name="input" placeholder="Compalaint Details" id="message1M" ></textarea><br>
+						
+							<input class="p-3 m-2" type="submit" value="Send" onclick="sendComplaintM()" id="send-btn" />
+					</form>
+					<div id="ResponseComplaintsM"></div>
+				
+						  </div>
+						</div>
+						<div class="card" data-toggle="collapse" data-target="#collapseATM" aria-expanded="false" aria-controls="collapseATM">
+						<div class="card-header" id="headingATM">
+						  <h5 class="mb-0">
+							<button class="btn btn-link collapsed">
+							 ATM LOCATOR
+							</button>
+						  </h5>
+						</div>
+					  </div>
+					    <div id="collapseATM" class="collapse" aria-labelledby="headingATM" data-parent="#contact-us">
+						  <div class="card-body">
+						  <h1 class="display-4 text-center">Find ATM Machine</h1>
+				<div class="align-items-center">	
+			<select  onChange='LoadATMM()' id="cityM" class="form-control align-items-center" searchable="Search here..">
+  <option value="" disabled selected>--Choose the City/Area--</option>
+   <?php 
+
+						$sql="SELECT `Id`, `city`, `Loacation_coodinates`, `place_location` FROM `atms`";
+						$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+
+
+						while ($row5 = mysqli_fetch_array($q1)) {
+
+
+				  ?>
+  <option   value="<?php echo $row5['Id'] ?>"><?php echo $row5['city'] ?>-<?php echo $row5['place_location'] ?></option>
+  
+  
+					<?php  
+					
+																} ?>
+																
+																
+ 
+</select>
+
+</div>
+<br><br>
+<div id="mapM" ></div>
+						  
+					
+				
+						  </div>
+						</div>
+					  
+					  <div class="card" data-toggle="collapse" data-target="#collapseFourteen" aria-expanded="false" aria-controls="collapseFourteen">
+						<div class="card-header" id="headingFourteen">
+						  <h5 class="mb-0">
+							<button class="btn btn-link collapsed">
+							  CAREER OPPOTUNITIES
+							</button>
+						  </h5>
+						</div>
+					  </div>
+						<div id="collapseFourteen" class="collapse" aria-labelledby="headingFourteen" data-parent="#contact-us">
+						  <div class="card-body">
+						  
+					<?php
+						$sql="SELECT `article_id`, `At_Title`, `At_content`, `At_image`, `At_sub_cat`, `At_category`, 
+						`At_status` FROM `articles` WHERE `At_sub_cat`='29'";
+						$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+
+
+						while ($row5 = mysqli_fetch_array($q1)) {
+
+
+					?>
+					
+
+				<a data-toggle="modal" href="" data-target="#jobs<?php echo $row5['article_id']; ?>"><h5 class="section-content-btn"><?php echo $title=$row5['At_Title']; ?></h5></a>
+	
+					<?php  
+					
+																} ?>
+						  </div>
+						</div>
+					  
+					  <div class="card" data-toggle="collapse" data-target="#collapseFifteen" aria-expanded="false" aria-controls="collapseFifteen">
+						<div class="card-header" id="headingFifteen">
+						  <h5 class="mb-0">
+							<button  class="btn btn-link collapsed">
+							  MAIN BRANCH
+							</button>
+						  </h5>
+						</div>
+					  </div>
+					  <div id="collapseFifteen" class="collapse" aria-labelledby="headingFifteen" data-parent="#contact-us">
+						  <div class="card-body">
+                           <?php
+									
+							$sql="SELECT `branch_id`, `branch_name`, `Address1`, `Address 2`, `Town`, `Contact_no1`, `Contact_no2`, `email`, `google_map` FROM `branch_tbl` WHERE `branch_name`='Main Branch'";
+							$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+        
+                                                               
+							while ($row5 = mysqli_fetch_array($q1)) {									
+							?>
+					
+
+				<div class="col-lg-12">
+                        
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <h2><img style="height:30px; width:30px;" src="images/location-icon.png"></h2>
+                                <p><?php echo $row5['Address1']; ?>, <?php echo $row5['Address 2']; ?></p>
+								<p><?php echo $row5['Town']; ?>, Zambia</p>
+                            </div>
+            
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <h2><img style="height:30px; width:30px;" src="images/mail-icon.png"></h2>
+                                <p id="branch_<?php echo $row5['branch_id']; ?> "><?php echo $row5['email']; ?></p>
+                            </div>
+                        </div>
+        
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <h2><img style="height:30px; width:30px;" src="images/handset-icon.png"></h2>
+                                <p><?php echo $row5['Contact_no1']; ?> <?php if($row5['Contact_no2'])?> / <?php echo $row5['Contact_no2']; ?></p>
+                            </div>   
+                        
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+
+								<a href="https://tweeter.com"><img style="height:30px; width:30px;" src="images/whatsapp-256.png"></a>
+								<a href="https://web.facebook.com/"><img style="height:30px; width:30px;" src="images/facebook_circle-512.png"></a>
+								<a href="https://tweeter.com"><img style="height:30px; width:30px;" src="images/Twitter.png"></a>
+													 
+                                <p></p>
+								
+                            </div>
+						
+                        </div>
+						<div class="row">
+						
+						<?php echo $row5['google_map'];?>
+						</div>
+						
+						
+						
+                    </div>
+	
+					<?php  
+					
+																} ?>
+						  </div>
+						</div>
+					  
+					    <div class="card" data-toggle="collapse" data-target="#collapsebranches" aria-expanded="false" aria-controls="collapsebranches">
+						<div class="card-header" id="headingbranches">
+						  <h5 class="mb-0">
+							<button class="btn btn-link collapsed">
+							  OTHER BRANCHES
+							</button>
+						  </h5>
+						</div>
+						</div>
+						<div id="collapsebranches" class="collapse" aria-labelledby="headingbranches" data-parent="#contact-us">
+						  <div class="card-body">
+						  <?php 
+					
+					
+							$sql="SELECT `branch_id`, `branch_name`, `Address1`, `Address 2`, `Town`, `Contact_no1`, `Contact_no2`, `email`, `google_map` FROM `branch_tbl` WHERE `branch_name`!='Main Branch'";
+							$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+
+
+							while ($row5 = mysqli_fetch_array($q1)) {
+
+							$title=$row5['branch_name'];
+
+							 ?>
+							<a data-toggle="modal" onclick="LoadMap(<?php echo $row5['branch_id']; ?>)" href="" data-target="#branch<?php echo $row5['branch_id']; ?>"><h5 class="section-content-btn"><?php echo $row5['branch_name']; ?></h5></a>
+	                            
+						<?php  
+					
+																} ?>
+						  </div>
+						</div>
+					    
+					</div>
+				</div><!--end accordion-->
+				
+				<div class="col-lg-4 col-md-12 section-img"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3846.2572022379486!2d28.28026641485012!3d-15.4166633892869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1940f358d0d526b9%3A0x4bd43665f8e204cd!2sZambia%20National%20Building%20Society%20Lusaka!5e0!3m2!1sen!2szm!4v1592914482178!5m2!1sen!2szm" width="600" height="900" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></div>
+				
+			</div><!--end row-->
+		
+		</section>
+			
+		<section>
+			
+			<div id="affiliates" class="owl-carousel owl-theme">
+
+		<?php 	$propertySQL="SELECT `Partner_id`, `name`, `picture`, `web_address` FROM `partners`";
+											$results=mysqli_query($conn,$propertySQL);
+											$count=0;
+											while($row5=mysqli_fetch_array($results)){ ?>
+				<div class="affiliate col-md-7">
+					<a href="<?php echo  $row5['web_address'] ?>" target="_blank">
+						<img src="images/staff/<?php echo  $row5['picture'] ?> ">
+					</a>
+				</div>
+				
+											<?php } ?>
+
+				
+			</div>
+		</section>
+			
+		<section>
+			<div id="footer">
+				<div class="row">
+					<div class="col-md-4">
+						<p>copyright Zambia National Building Society<br>
+						</p>
+					</div>
+					
+					<div class="col-md-4">
+						<p>Developed by : <a href="http://www.code-it.online" target="_blank"><img src="http://www.fabianshamano.com/images/code-it-logo.png"></a><br>
+							<a href="http://www.code-it.online" target="_blank">www.code-it.online</a> and <a href="https://www.facebook.com/Chesha-Business-Solutions-1357111390994010/">Chesha Consultants</a>
+						</p>
+					</div>
+					
+					<div class="col-md-4">
+						<p>email address : <a href="info@code-it.online">info@code-it.online</a> <br>
+						Phone : +260977519229 / +260950419796
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		</div><!--end content-->
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script>
+	function LoadMap(branchId){
+		 var Mobile="mobile"+branchId
+		 
+	// ;
+    $.ajax({
+       type: "POST",
+       url: 'actions/getMap.php',
+       data: "branchId="+branchId,
+       success: function(data)
+       {
+        
+			
+			 
+		 document.getElementById(branchId).innerHTML=data;
+			 
+			  document.getElementById(Mobile).innerHTML=data;
+		 
+          
+		 
+			
+			
+          }
+       
+   });
+		
+	}
+	
+		$("#testimonial-slider").owlCarousel({
+			items:3,
+			itemsDesktop:[1000,3],
+			itemsDesktopSmall:[979,2],
+			itemsTablet:[768,2],
+			itemsMobile:[650,1],
+			pagination:true,
+			autoPlay:true
+		});
+		
+		$("#affiliates").owlCarousel({
+			items:5,
+			itemsDesktop:[1000,5],
+			itemsDesktopSmall:[979,3],
+			itemsTablet:[768,2],
+			itemsMobile:[650,1],
+			pagination:true,
+			autoPlay:true
+		});
+		
+	</script>
+	<script src="js/lightbox-plus-jquery.min.js"></script>
+	<script type="text/javascript" src="js/parallaxScroll/jquery.scrollTo.min.js"></script>
+	<script type="text/javascript" src="js/parallaxScroll/jquery.localScroll.js"></script>
+	<script src="js/scripts.js"></script>
+	<script src="scripts/claculator.js"></script>
+	<script src="scripts/message.js"></script>
+	<script src="scripts/atmmap.js"></script>
+	
+	<!-- Import Trumbowyg -->
+
+
+	</body>
+</html>
+	
+<!--Designed by Fabian Shamano, www.fabianshamano.com, fabianshamano@yahoo.com-->

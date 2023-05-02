@@ -1,0 +1,23 @@
+
+<?php 
+include '../Dbconnect.php';
+ $departmentID=$_POST['departmentId'];
+	
+	
+											$userqry="SELECT * FROM `budget_item`  INNER JOIN `department` ON `department`.`Id`=`budget_item`.`Dept` WHERE `year`='$year' AND `Dept`='$departmentID'";
+											$results=mysqli_query($conn,$userqry);
+											if(mysqli_num_rows($results)){
+											while($row=mysqli_fetch_array($results)){
+											
+											?>
+											
+											<option  value="<?php echo $row['Budget_Line'];?>"><?php echo $row['Description'];?> - <?php echo $row['Amount'];?></option>
+											
+											
+											
+											
+											<?php }
+
+											}
+											?>
+												

@@ -1,0 +1,37 @@
+
+<?php
+include '../../sessions.php';
+
+?>
+
+<div class="form-group" >
+										<label class="col-sm-3 control-label " for="form-field-1"> Department</label>
+
+										<div class="col-sm-9">
+											<select class="form-control" id="Department">
+																
+																
+																
+																<option value="">--Select Department--</option>
+																<?php
+																echo $sql="SELECT `Id`, `Name`, `Church`, `Dept_Description` FROM `department`";
+																$result=mysqli_query($conn,$sql);
+																while($rows=mysqli_fetch_assoc($result)){
+																?>
+																
+																<option value="<?php echo $rows['Id']; ?>"><?php echo $rows['Name']; ?> </option>
+																
+																<?php } ?>
+																
+																
+															</select>
+										</div>
+										</div>
+
+
+
+
+	
+	
+
+

@@ -1,0 +1,90 @@
+<?php
+ include '../../sessions.php';
+ $startDate=$_POST['startDate'];
+ $Endday=$_POST['Endday'];
+ $Department=$_POST['Department'];
+
+  $select = 'SELECT *';
+  $from = 'FROM `expenditure`';
+  
+  
+  $where = 'WHERE TRUE';
+  
+  if ($startDate){
+    $where .= " AND `Date_of_expense` >= '".$startDate."'";
+  }
+ 
+  if ($Endday){
+    $where .= " AND `Date_of_expense` <='".$Endday."'";
+  }
+   if ($Department){
+    $where .= " AND `Department` = '".$Department."'";
+  }
+ 
+  
+ 
+ $sql = $select . $from . $where;
+?>
+
+<div class="row">
+									<div class="col-xs-12">
+										
+										<div class="table-header">
+											Income Statement             From: <?php echo $startDate; ?>    To:  <?php echo $Endday; ?>   
+										</div>
+                                     
+										<!-- div.table-responsive -->
+
+										<!-- div.dataTables_borderWrap -->
+										<div>
+											<table id="dynamic-table" class="table table-striped table-bordered table-hover">
+												<thead>
+													<tr>
+														<th>Transaction ID</th>
+															<th>Reciept ID</th>
+															<th>Department</th>
+
+															<th>
+																
+																Naration
+															</th>
+															<th>Amount</th>
+															<th>Date and Time </th>
+															
+
+														
+													</tr>
+												</thead>
+
+												<tbody>
+												<?php 
+											
+											$results=mysqli_query($conn,$sql);
+											
+											while($row=mysqli_fetch_array($results)){
+											
+											?>
+													<tr>
+														
+                                                      
+														<td>
+														<?php echo $row['paid_to'];?>
+														</td>
+														<td><?php echo $row['Date_of_expense'];?></td>
+														<td ><?php echo $row['amount'];?></td>
+														<td><?php echo $row['Department'];?> </td>
+                                                         
+														<td>
+															<?php echo $row['reciepted'];?>
+														</td>
+<td>
+														<?php echo $row['budget_id'];?>
+														</td>
+																</tr>
+											<?php } ?>
+
+                                           </tbody>
+											</table>
+										</div>
+									</div>
+								</div>

@@ -1,0 +1,22 @@
+<?php include 'includes/header.php' ?>
+<?php include 'includes/sidebar.php' ?>
+<?php 
+
+$Sermon_id=$_GET['Sermon_id'];
+
+$sql="DELETE FROM `sermons` WHERE `Sermon_Id`=:sermon_id";
+  $stmt = $conn2->prepare($sql);
+
+$stmt->bindParam(":sermon_id",$Sermon_id);
+   if($stmt->execute()){
+		
+	echo '<script>window.location = "Worship_service.php";</script>';
+
+	
+}else{
+	
+	echo '<script>window.location = "Worship_service.php";</script>';
+	
+	
+}
+?>

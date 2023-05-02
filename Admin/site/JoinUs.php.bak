@@ -1,0 +1,233 @@
+<?php include 'includes/level1/header.php';?>	
+<!-- Header Wrapper End -->
+<!-- gc Tittle Wrapper Start -->
+<div class="gc_tittle_main_wrapper">
+	<div class="gc_tittle_img_overlay"></div>
+	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+		<div class="gc_main_tittle_heading">
+			<h2>Join Us</h2>
+		</div>
+	</div>	
+	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 padding_zero">
+		<div class="gc_main_tittle_side_nav">
+			<ul>
+				<li><a href="#">Home</a> &nbsp;&nbsp;&nbsp;&nbsp;></li>
+				<li>Join Us</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- gc Tittle Wrapper End -->
+<!-- GC map Wrapper Start -->
+
+<!-- GC map Wrapper End -->
+<!-- gc causes single contect-form section Start -->
+<div class="gc_causes_single_contact_form_wrapper gc_contact_section_form_wrapper">
+	<div class="container">
+		<div class="row">
+		<?php  if(isset($_POST['Registerbtn'])){
+            
+{
+			
+		include 'Dbconnect.php';
+		
+$first_name =$_POST['Firstname'];
+$last_name =$_POST['LastName'];
+$username = $_POST['username'];
+$password = $_POST['password1'];
+$password = $_POST['password2'];
+$options = [
+    'cost' => 11,
+    'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),
+];
+$encrypt = password_hash($password1 , PASSWORD_BCRYPT, $options);
+$email = $_POST['Email'];
+$cellphone =$_POST['Contact'];
+ $nrc =$_POST['nrc'];
+$level = "2";
+$active = "0";
+$activation_code =rand(000001,999999);
+
+$user_id ="";
+$todaysdate=date('Y-m-d');
+
+  $SQL3 = "INSERT INTO `users`(`username`, `password`, `Type`, `UserID`, `memberID`, `level`, `email`, `active`, `pin`) VALUES
+  ('$username','$encrypt','Member','','$nrc','$level','$email','$active','$activation_code');
+  INSERT INTO `churchmember`(`Gender`, `Status`, `Title`, `First Name`, `Mid Name`, `Last Name`, `ID Number`, `Date of Birth`, `Employed`, `Profession`,
+  `Church Employee`, `Join Type`, `Join Date`, `Officiating Minister`, `Church Action`, `Conference Action`, `Physical Address 1`, `Physical Address 2`, 
+  `Physical Address 3`, `Postal Code`, `Postal Address 1`, `Postal Address 2`, `Postal Address 3`, `Postal Code1`, `Telephone`, `Fax`, `Email`, `Cellphone`, 
+  `zone`, `Face_picture`) VALUES ('','Not Approved','','$first_name','','$last_name','$nrc','','','','','','','','','','','','','','','','','','','',
+  '','$cellphone','','')";
+  
+    //$result3= mysqli_query($conn,$SQL3);
+   if(!$conn->multi_query($SQL3)){
+   
+  echo '<script>window.location = "signuperror.php";</script>';
+    		
+}else {
+$to = $email;
+$subject = "Kamwala SDA confirmation code";
+$txt = "Dear ".$first_name."\n.\n. Your Confirmation Code is  ".$activation_code ;
+$headers = "From: Kamwala SDA Church";
+if(mail($to,$subject,$txt,$headers))
+{
+	session_start();
+	
+	$_SESSION['email']=$email;
+  echo '<script>window.location = "signupconfirm.php";</script>';
+  		}else{
+			
+			echo "<p class='alert alert-danger'><br><br><br>The email was not sent  ";
+		}
+//}
+
+	
+	}
+	
+}
+}
+
+
+?> 
+		<form action="JoinUs.php" method="POST" >
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gc_contact_heading_main_wrapper">
+				<div class="gc_blog_heading_wrapper">
+					<div class="gc_blog_heading">
+						
+						<h1>Join Us</h1>
+					</div>
+				</div>
+			</div>
+			
+				
+			<div class="gc_causes_single_teatarea">
+				<div class="gc_causes_single_forms gc_causes_single_forms2">
+					<input type="text" id="Firstname" name="Firstname" placeholder="First Name" required ><i class="fa fa-user"></i>
+				</div>
+			</div>
+				
+			<div class="gc_causes_single_teatarea">
+				<div class="gc_causes_single_forms gc_causes_single_forms2">
+					<input type="text" id="LastName" name="LastName" placeholder="Last Name" required ><i class="fa fa-user" ></i>
+				</div>
+			</div>
+				
+			<div class="gc_causes_single_teatarea">
+				<div class="gc_causes_single_forms gc_causes_single_forms2">
+					<input type="text" id="username" name="username" placeholder="Username" required ><i class="fa fa-user" ></i>
+				</div>
+			</div>
+				
+			<div class="gc_causes_single_teatarea">
+				<div class="gc_causes_single_forms gc_causes_single_forms2">
+					<input type="password" id="password1" name="password1" placeholder="Password" required ><i class="fa fa-lock"></i>
+				</div>
+			</div>
+				
+			<div class="gc_causes_single_teatarea">
+				<div class="gc_causes_single_forms gc_causes_single_forms2">
+					<input type="password" id="password2" name="password2" placeholder="Re-enter Password " required ><i class="fa fa-lock"></i>
+				</div>
+			</div>
+			<div class="gc_causes_single_teatarea">
+				<div class="gc_causes_single_forms gc_causes_single_forms2">
+					<input type="email" id="Email" name="Email" placeholder="Email" required ><i class="fa fa-envelope"></i>
+				</div>
+			</div>
+				
+			<div class="gc_causes_single_teatarea">
+				<div class="gc_causes_single_forms gc_causes_single_forms2">
+					<input type="text" id="Contact" name="Contact" placeholder="Contact Number" required ><i class="fa fa-phone"></i>
+				</div>
+			</div>
+				
+			<div class="gc_causes_single_teatarea">
+				<div class="gc_causes_single_forms gc_causes_single_forms2">
+					<input type="text" id="nrc" name="nrc" placeholder="National registration no Passport Number" required ><i class="fa fa-user"></i>
+				</div>
+			</div>
+			
+				<div class="gc_causes_single_form_btn gc_contact_section_main_btn col-lg-4 col-md-12 col-sm-12 col-xs-12">
+					<ul>
+						<button type="submit" name="Registerbtn" id="virtualPost"  class="gc_btn">Join Us</button>
+					</ul>
+				</div>
+				<div class="gc_causes_single_form_btn gc_contact_section_main_btn col-lg-4 col-md-12 col-sm-12 col-xs-12">
+					<ul>
+						<a href="index.php" class="gc_btn">Cancel</a>
+					</ul>
+				</div>
+
+			</div>
+			
+			</form>
+			<div id="loginresponse"></div>
+		</div>
+	</div>
+</div>
+<!-- gc causes single contect-form section End -->
+<!-- Tweet Feed Wrapper Start -->
+<div class="container">
+<div class="tc_twtfd_wrapper">
+	
+		<div class="row">
+			<div id="myCarousel" class="vertical-slider carousel vertical slide col-md-12" data-ride="carousel">
+				<div class="row">
+					<div class="col-md-12 hidden-xs">
+						<span data-slide="next" class="btn-vertical-slider fa fa-angle-up tc_up_btn" style="font-size: 28px; top: 0px;"></span>  
+					</div>
+				</div>
+				<br>
+				<!-- Carousel items -->
+				<div class="carousel-inner">
+					<div class="item">
+						<div class="row">
+							<div class="col-xs-12 col-sm-1 col-md-1">
+								<div class="tc_twitter_img_wrapper">
+									<img src="images/content/twitter_icon.png" class="twitter icon" alt="twitter icon">
+								</div>	
+							</div>
+							<div class="col-xs-12 col-sm-9 col-md-9">
+								<small>- @webstrot </small>
+								<p>Font Awesome is always getting a little awesome-er. So here's what's new in the latest version, Font Awesome 4.6.Have some ideas for new features? Help contribute.</p>
+								<span class="tc_date_wrapper">29 March 2017</span>
+							</div>
+						</div>
+					</div>
+					<div class="item active">
+						<div class="row">
+							<div class="col-xs-12 col-sm-1 col-md-1">
+								<div class="tc_twitter_img_wrapper">
+									<img src="images/content/twitter_icon.png" class="twitter icon" alt="twitter icon">
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-9 col-md-9">
+								<small>- @webstrot </small>
+								<p>Font Awesome is always getting a little awesome-er. So here's what's new in the latest version, Font Awesome 4.6.Have some ideas for new features? Help contribute.</p>
+								<span class="tc_date_wrapper">29 March 2017</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 hidden-xs">
+						<span data-slide="prev" class="btn-vertical-slider fa fa-angle-down tc_down_btn" style="font-size: 28px; top: 0px;"></span>  
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 visible-xs">
+						<span data-slide="next" class="btn-vertical-slider fa  fa-angle-right tc_up_btn" style="font-size: 28px; top: 0px;"></span>  
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 visible-xs">
+						<span data-slide="prev" class="btn-vertical-slider fa fa-angle-left tc_down_btn" style="font-size: 28px; top: 0px;"></span>  
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Tweet Feed Wrapper End -->
+<!-- GC footer Wrapper Start -->
+<?php include 'includes/level1/footer.php';?>

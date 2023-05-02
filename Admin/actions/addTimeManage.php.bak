@@ -1,0 +1,25 @@
+	      
+	
+	 <?php 
+	include '../sessions.php';
+	  $year=$_POST['yearId'];
+	  $departmentID=$_POST['DepartmentId'];
+$checsql="SELECT `Plan_id`, `Dept_id`, `Year` FROM `time managments` WHERE `Year`='$year' AND `Dept_id`='$departmentID'";
+	$results=mysqli_query($conn,$checsql);
+	$num=mysqli_num_rows($results);
+	if($num<1){
+											
+											
+											$userqry="INSERT INTO `time managments`(`Plan_id`, `Dept_id`, `Year`) VALUES ('','$departmentID','$year')";
+											$results1=mysqli_query($conn,$userqry);
+											if($results1){
+												
+												echo '<span class="alert alert-success">The Time Managment has been added successfully</span>';
+											}
+											
+											
+											
+	}else{
+		
+		echo '<span class="alert alert-danger">The Managment has not been added because it already exists</span>';
+	}											

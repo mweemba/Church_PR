@@ -1,0 +1,258 @@
+function SelfEditProfile(){
+var firstname=document.getElementById("firstname").value;
+var lastname=document.getElementById("lastname").value;
+var mobile=document.getElementById("mobile").value;
+var whatsapp=document.getElementById("whatsap").value;
+var email=document.getElementById("email").value;
+var address1=document.getElementById("address1").value;
+var address2=document.getElementById("address2").value;
+var city=document.getElementById("city").value;
+var country=document.getElementById("country").value;
+ 
+   
+	// ;
+    $.ajax({
+       type: "POST",
+       url: 'actions/do_selfEditProfile.php',
+       data: "firstname="+firstname+"&lastname="+lastname+"&mobile="+mobile+"&whatsapp="+whatsapp+"&email="+email+"&address1="+address1+"&address2="+address2+"&city="+city+"&country="+country,
+       success: function(data)
+       {
+          if (data.trim() === 'success') {
+          
+		  document.getElementById("Response").innerHTML="<Br><div class='alert alert-success'><b>The changes have been made succefully</b></div>";
+			
+          }
+          else {
+		 
+			document.getElementById("Response").innerHTML="<div class='alert alert-danger'><b>"+data+"</b></div>";
+			
+          }
+       }
+   });
+
+}
+
+function empProfile(){
+
+var firstname=document.getElementById("firstname").value;
+var lastname=document.getElementById("lastname").value;
+var mobile=document.getElementById("mobile").value;
+var whatsapp=document.getElementById("whatsap").value;
+var email=document.getElementById("email").value;
+var address1=document.getElementById("address1").value;
+var address2=document.getElementById("address2").value;
+var city=document.getElementById("city").value;
+
+var country=document.getElementById("country").value;
+var emp_id=document.getElementById("emp_id").innerHTML;
+
+var qualific_l = document.getElementById('Qualification_level');
+              	var qualification= qualific_l.options[qualific_l.selectedIndex].value;
+var studyArea=document.getElementById("qualification_Area").value;
+ 
+   
+	// ;
+    $.ajax({
+       type: "POST",
+       url: 'actions/do_employeeEditProfile.php',
+       data: "firstname="+firstname+"&lastname="+lastname+"&mobile="+mobile+"&whatsapp="+whatsapp+"&email="+email+"&address1="+address1+"&address2="+address2+"&city="+city+"&country="+country+"&emp_id="+emp_id+"&qualification_level="+qualification+"&studyArea="+studyArea ,
+       success: function(data)
+       {
+          if (data.trim() === 'success') {
+          
+		  document.getElementById("Response").innerHTML="<Br><div class='alert alert-success'><b>The changes have been made succefully</b></div>";
+			
+          }
+          else {
+		 
+			document.getElementById("Response").innerHTML="<div class='alert alert-danger'><b>"+data+"</b></div>";
+			
+          }
+       }
+   });
+
+}
+
+//user change password for validation
+function FormValidate1(){
+	var formvalid=false;
+   
+	var t3=passidvalidation();
+	var t4=checkBothpasswords();
+	  var t2=oldpassvalidate()
+	
+	errorlist="";
+	
+     if (t3==0) {
+        errorlist += '<li>The Current Password is not correct</li>';
+    }
+	
+    if (t3==0) {
+        errorlist += '<li>The New Password is not valid</li>';
+    }
+	
+    if (t4==0) {
+        errorlist += '<li>The two Passwords are not the same</li>';
+    }
+	
+	
+	
+    if (errorlist.trim()) {
+        document.getElementById("passResponse").innerHTML = '<br><div class="alert alert-danger"><ul><b>'+errorlist+'</b></ul></div>';
+      formvalid=false;
+    }
+	else {
+	formvalid=false;
+   formvalid =SelfChangepass();
+		
+	}
+	
+	return formvalid;
+}
+function passidvalidation(){
+
+
+var pass_valid=0;
+var password1= document.getElementById("inputPassword3").value;
+var password_strength=document.getElementById("passwordValidate");
+ var strongRegex = new RegExp("^(?=.{8,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$" ,"g");
+var mediumRegex = new RegExp("^(?=.{7,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$","g");
+var enoughRegex = new RegExp("(?=.{6,}).*", "g");
+
+if (password1.length==0) {
+ password_strength.innerHTML = 'Type Password';
+} else if (false == enoughRegex.test(password1)) {
+ password_strength.innerHTML = '<span style="color:red">Too Short!</span>';
+ pass_valid=0;
+} else if (strongRegex.test(password1)) {
+ password_strength.innerHTML = '<span style="color:green">Strong!</span>';
+ pass_valid=1;
+} else if (mediumRegex.test(password1)) {
+ password_strength.innerHTML = '<span style="color:orange">Medium!</span>';
+ pass_valid=1;
+} else {
+ password_strength.innerHTML = '<span style="color:red">Weak!</span>';
+ pass_valid=0;
+}
+checkBothpasswords();
+return pass_valid;
+}
+
+function oldpassvalidate()
+{ 
+var oldpassValid=0;
+var oldpass= document.getElementById("curpass").value;
+
+
+
+	 
+  $.ajax({
+	  //async:false,
+       type: "POST",
+       url: 'actions/checkPassOnChange.php',
+       data: "oldpass="+oldpass,
+       success: function(data)
+       {
+          if (data.trim() === 'success') {
+            document.getElementById("emailOLDpass").innerHTML="<img src='media/image/tick.jpg' width='20'>";	
+			oldpassValid=1;
+          }
+          else {
+			document.getElementById("emailOLDpass").innerHTML="<font color='red'>"+data+"</font>"
+			oldpassValid=0;
+          }
+       }
+   });
+  
+	return oldpassValid;
+
+}
+
+function oldpassvalidate()
+{ 
+var oldpassValid=0;
+var oldpass= document.getElementById("currentPass").value;
+
+
+
+	 
+  $.ajax({
+	  //async:false,
+       type: "POST",
+       url: 'actions/checkPassOnChange.php',
+       data: "oldpass="+oldpass,
+       success: function(data)
+       {
+          if (data.trim() === 'success') {
+            document.getElementById("emailOLDpass").innerHTML="<img src='media/image/tick.jpg' width='20'>";	
+			oldpassValid=1;
+          }
+          else {
+			document.getElementById("emailOLDpass").innerHTML="<font color='red'>"+data+"</font>"
+			oldpassValid=0;
+          }
+       }
+   });
+  
+	return oldpassValid;
+
+}
+		
+		
+
+
+function checkBothpasswords() {
+	var bothpassvlaid=0;
+var pass1= document.getElementById("inputPassword3").value;
+var pass2= document.getElementById("inputPassword2").value;
+if(pass1.trim() === pass2.trim())
+{
+document.getElementById("checkbothpass").innerHTML ="<img src='media/image/tick.jpg' width='20'>";
+bothpassvlaid=1;
+}
+else {
+
+document.getElementById("checkbothpass").innerHTML="<font color='red'>The two passwords are not the same</font>"
+bothpassvlaid=0;
+}
+console.log(bothpassvlaid);
+return bothpassvlaid;
+
+}
+
+function SelfChangepass()
+{ 
+var NewPass= document.getElementById("inputPassword3").value;
+
+
+
+	 
+  $.ajax({
+	  //async:false,
+       type: "POST",
+       url: 'actions/SelfPassChange.php',
+       data: "NewPass="+NewPass,
+       success: function(data)
+       {
+          if (data.trim() === 'success') {
+            document.getElementById("passResponse").innerHTML='<br><div class="alert alert-success">The Password has been changed succefully</div>'	
+			document.getElementById("inputPassword3").value="";
+           document.getElementById("inputPassword2").value ="" ;  
+			 document.getElementById("curpass").value =""; 
+          document.getElementById("checkbothpass").innerHTML ="";
+         document.getElementById("emailOLDpass").innerHTML="";
+           document.getElementById("passwordValidate").innerHTML="";		 
+          }
+          else {
+			document.getElementById("passResponse").innerHTML='<div class="alert alert-danger">'+data+'</div>'
+			
+          }
+       }
+   });
+  return false;
+
+
+}
+
+
+

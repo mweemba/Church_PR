@@ -1,0 +1,123 @@
+
+<!-- add budget item-->
+<div class="modal fade" id="addBudgetItem" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+         <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+		<form>
+		
+		<div class="form-group">
+										<label class="col-sm-3 control-label " for="form-field-1">Category </label>
+
+										<div class="col-sm-9">
+											<select class="form-control" name="Category">
+																<option value="<?php echo $rows1['Category']?>"><?php echo $rows1['Category']?></option>
+																<option value="Current Asset">Current Asset</option>
+																<option value="Fixed Asset">Fixed Asset</option>
+                                                                
+															</select>
+										</div>
+									</div>
+
+		  
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+		</form>
+      </div>
+      
+    </div>
+  </div>
+
+  
+ <!-- ///add budget item-->
+ <div class="modal fade" id="NewTalent" role="dialog">
+
+ 
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">New Talent</h4>
+        </div>
+        <div class="modal-body">
+		<form action="#" method="POST" class="form-horizontal">
+								
+								<form class="form-horizontal" id="addBudgetItem_form" onsubmit="return false" method="POST" role="form">
+		
+									 <div class="form-group">
+										<label class="col-sm-3 
+										control-label " for="form-field-1"> Member ID </label>
+															<div class=" col-md-9 col-lg-9 col-sm-9">
+														<input type="text" id="budget_id_id" class="col-xs-12 col-sm-12" disabled="" value="Administration -2050"> 
+														 <input type="text" id="budget_id" hidden="hidden" class="col-xs-12 col-sm-12" disabled="" value="45">
+															</div>
+
+									</div>
+									<div class="space-4"></div>
+									<br>
+									<div class="form-group">
+										<label class="col-sm-3 control-label " for="form-field-2"> Talent </label>
+
+										<div class="col-sm-9">
+											<input type="text" name="Talentname" placeholder="Description" id="itemDescription" class="col-xs-10 col-sm-12">
+											
+										</div>
+									</div>
+									<br>
+									<div class="space-4"></div>
+									
+									<div class="form-group">
+										<label class="col-sm-3 control-label " for="form-field-2"> Description</label>
+
+										<div class="col-sm-9">
+											<textarea type="number" name="amount"  id="talentDecription" class="col-xs-10 col-sm-12"></textarea>
+											
+										</div>
+									</div>
+									<br>
+
+									<div class="space-4"></div>
+									<br>
+
+									<div class="clearfix">
+										<div class="col-md-offset-3 col-md-9">
+											<input class="btn btn-info" type="submit" onclick="AddBudgetItem()" value="Add Item">
+											
+											<a href="Budgets.php"><button class="btn" type="button">
+												<i class="ace-icon fa fa-undo bigger-110"></i>
+												back to Budgets
+											</button></a>
+											
+										</div>
+									</div>
+									<div id="response_budget_item" style="text-align: center;"></div>
+
+									<div class="hr hr-24"></div>
+
+																							
+														
+								</form>
+        </div>
+		
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+		
+      </div>
+      
+    </div>
+	</div>		
+	
+
+	
+ 

@@ -1,0 +1,30 @@
+<?php
+session_start();
+error_reporting(0);
+include 'Dbconnect.php';
+$memberID=$_SESSION['memberID'];
+//$dbuser=$_SESSION['user'];
+$dblevel=$_SESSION['level'];
+$semail="";
+$firstname="";
+$lastname="";
+
+$username="";
+date_default_timezone_set("Africa/Harare");
+       $query="SELECT * FROM `churchmember` INNER JOIN  `users` ON `churchmember`.`ID Number`= `users`.`memberID` WHERE  `users`.`memberID`='$memberID'";
+      
+      $q1=mysqli_query($conn,$query)or die(mysqli_error());
+        
+        
+            while ($row = mysqli_fetch_array($q1)) {
+            
+            $firstname=$row['First Name'];
+           $lastname=$row['Last Name'];
+            $semail = $row['email'];
+             $username = $row['username'];
+			 $username=$row['username'];
+			$Face_picture=row['Face_picture'];
+            }
+
+
+?> 

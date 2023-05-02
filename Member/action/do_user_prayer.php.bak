@@ -1,0 +1,58 @@
+		<?php include '../../sessions.php';
+		$Year=$_POST['Year'];
+		$Month=$_POST['Month'];
+		
+		
+								 $sql="SELECT  * FROM `PrayerRequest` WHERE MONTH(`DateGiven`)='$Month' AND YEAR(`DateGiven`)='$Year' AND `member_id`='$member_id'";
+								$q1=mysqli_query($conn,$sql)or die(mysqli_error());
+								
+								if(mysqli_num_rows($q1) >1){
+		?>	
+		?>	
+			
+		<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Date#</th>
+      <th scope="col">Details</th>
+      <th scope="col">Status</th>
+      <th scope="col">Pastors Response</th>
+	  <th scope="col">Testimony</th>
+    </tr>
+  </thead>
+  
+								<?php  
+                                
+        
+        
+            while ($row1 = mysqli_fetch_array($q1)) {
+            $DateGiven=$row1['DateGiven'];
+           $Details=$row1['Details'];
+            $Status= $row1['Status'];
+            $Response=$row1['Response'];
+			$Testimony =$row1['Testimony'];
+            
+								
+								?>
+								
+								
+							 <tr>
+	<td><?php echo date('d-M-Y', strtotime($DateGiven)) ?></td>
+      <td> <?php echo $Details ; ?></td>
+      
+
+      <td><?php echo $Status; ?></td>
+	  <td><?php echo  $Response ; ?></td>
+	  <td><?php echo  $Testimony; ?></td>
+    </tr>	
+									
+									
+			<?php } ?>
+				<tbody>
+   
+      </tbody>
+</table>	
+
+<?php } 
+		else {   echo 0; };
+		?>

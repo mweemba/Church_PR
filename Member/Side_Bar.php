@@ -1,0 +1,63 @@
+				<div class="span3 sidebar-content ">
+
+						<ul class="ver-inline-menu tabbable margin-bottom-25">
+
+							<li class="active">
+
+								<a href="index.php" >
+
+								<i class="icon-briefcase"></i> 
+
+								Dashboard 
+
+								</a> 
+
+								<span class="after"></span>                                    
+
+							</li>
+
+							<li><a href="Givings.php" ><i class="icon-group"></i> My Givings</a></li>
+
+							<li><a href="Events.php" ><i class="icon-leaf"></i> Church Events</a></li>
+
+							<li><a href="PrayerRequest.php"><i class="icon-info-sign"></i> My Prayer Requests</a></li>
+
+							<li><a href="NewsBulletins.php"><i class="icon-tint"></i> Bulletins</a></li>
+
+							<li><a href="Sermons.php"><i class="icon-plus"></i> Sermons</a></li>
+
+
+							<li><a href="profile.php" ><i class="icon-user"></i> My Profile</a></li>
+
+						</ul>
+
+						<!-- BEGIN PORTLET-->
+
+						<div class="portlet box green">
+
+							<div class="portlet-title line">
+
+								<div class="caption"><i class="icon-comments"></i>Reminders</div>
+
+								<div class="tools">
+
+									<a href="javascript:;" class="collapse"></a>
+
+									<a href="#portlet-config" data-toggle="modal" class="config"></a>
+
+								</div>
+
+							</div>
+
+							<div class="portlet-body">
+
+								
+
+								
+							</div>
+
+						</div>
+
+						<!-- END PORTLET-->
+
+					</div>

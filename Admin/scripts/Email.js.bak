@@ -1,0 +1,31 @@
+function sendEmail(){
+ 
+  var reciepient=document.getElementById(form-field-recipient).innerHTML;
+ var subject=document.getElementById(form-field-subject).value;
+ var message=document.getElementById(message_id).innerHTML;
+ var attached=document.getElementByName(attachment[]).value;
+    e.preventDefault();
+	 ;
+    $.ajax({
+       type POST,
+       url 'actionssend_emails.php',
+       data reciepient=+reciepient+&subject=+subject+&subject=+subject+&attached=+attached,
+       success function(data)
+       {
+          if (data.trim() === 'success') {
+          
+		   window.location = 'index.php';
+			
+          }
+          else {
+		  
+			document.getElementById(loginResponse).innerHTML='div class=alert alert-danger'+data+'div';
+			
+          }
+       }
+   });
+ 
+ 
+ 
+ 
+}

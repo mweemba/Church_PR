@@ -1,0 +1,18 @@
+<?php
+
+function updateimage($data,$user_id){
+	include '../Dbconnect.php';
+ $query1="UPDATE `properties_imagess` SET `name`='$data' WHERE `images_id`='$image_id'";
+
+if(!$conn->multi_query($query1)){
+		 
+      
+			return  "An error Occured";
+		 
+	 }else{
+		 return  "success";
+		
+     
+	 }
+}
+?>

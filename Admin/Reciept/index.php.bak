@@ -1,0 +1,120 @@
+
+<?php 
+include '../sessions.php';
+; ?>
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Receipt </title>
+  
+  
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  
+  <div id="invoice-POS">
+    
+    <center id="top">
+      <div class="logo"></div>
+      <div class="info"> 
+        <h2>SEVENTHAY ADVENTIST CHURCH</h2>
+		<h6>KAMWALA CONGREGATION</h6>
+		<h2>Reciept</h2>
+      </div><!--End Info-->
+    </center><!--End InvoiceTop-->
+    
+    <div id="mid">
+      <div class="info">
+        <p> 
+		<?php 
+		$recieptID=$_SESSION['reciept'];
+		
+		 $query="SELECT * FROM `reciept` INNER JOIN  `churchmember` ON `reciept`.`memberID`= `churchmember`.`ID Number` WHERE  `reciept`.`recieptID`='$recieptID'";
+      
+      $q1=mysqli_query($conn,$query)or die(mysqli_error());
+        
+        
+            while ($row = mysqli_fetch_array($q1)) {
+            
+            $firstname=$row['First Name'];
+           $lastname=$row['Last Name'];
+            $semail = $row['Email'];
+             $username = $row['username'];
+			 $contactNo=$row['Cellphone'];
+			 $address1 = $row['Physical Address 1'];
+			  $address2 = $row['Physical Address 2'];
+			   $address3 = $row['Physical Address 2'];
+			
+            
+
+
+?> 
+	   Recieved from: <?php echo $firstname; ?> <?php echo $lastname; ?></br>
+            Address : <?php echo $address1; ?> <?php echo $address2; ?> <?php echo $address3; ?></br>
+            Email   : <?php echo $semail; ?></br>
+            Phone   : +260<?php echo $contactNo; ?></br>
+			<?php } ?>
+        </p>
+      </div>
+    </div><!--End Invoice Mid-->
+    
+    <div id="bot">
+
+					<div id="table">
+						<table>
+							<tr class="tabletitle">
+								<td class="item"><h2>Details</h2></td>
+								
+								<td class="Rate"><h2>Amount(ZMK )</h2></td>
+							</tr>
+							<?php 
+							$GrandTotal='';
+											$userqry="SELECT * FROM `transaction` WHERE `recieptID`='$recieptID'";
+											$results=mysqli_query($conn,$userqry);
+											
+											while($row5=mysqli_fetch_array($results)){
+											
+											?>
+							<tr class="service">
+								<td class="tableitem"><p class="itemtext"><?php echo $row5['Category'];?>- <?php echo $row5['department'];?></p></td>
+								
+								<td class="tableitem"><p class="itemtext"><?php echo $row5['Amount'];?></p></td>
+							</tr>
+
+											<?php
+$GrandTotal+= $row5['Amount'];
+											} ?>
+
+                                  
+							
+
+							<tr class="tabletitle">
+								
+								<td class="Rate"><h2>Total</h2></td>
+								<td class="payment"><h2>ZMK <?php echo $GrandTotal ;?> </h2></td>
+							</tr>
+
+						</table>
+					</div><!--End Table-->
+
+					<div id="legalcopy">
+						<p class="legal"><strong>Thank you for your giving!</strong> 
+						</p>
+					</div>
+
+				</div><!--End InvoiceBot-->
+  </div><!--End Invoice-->
+  
+  
+
+</body>
+
+</html>
